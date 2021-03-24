@@ -4,8 +4,10 @@
 - file: intro
 - part: Diferenciální rovnice
   chapters:
-  - file: Autonomni_rovnice_a_systemy.ipynb
+  - file: Lov_populace.ipynb
+  - file: Populace_pod_tlakem_predatoru.ipynb
   - file: Teplotni_bilance_Zeme.ipynb
+  - file: Autonomni_rovnice_a_systemy.ipynb
   - file: Zaporna_zpetna_vazba_v_rustovych_modelech.ipynb
 - part: Integrál
   chapters:
