@@ -2,6 +2,12 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: intro
+- part: Derivace
+  chapters:
+  - file: Konstitutivni_zakony.ipynb
+- part: Integrál
+  chapters:
+  - file: Krivkovy_integral.ipynb
 - part: Diferenciální rovnice
   chapters:
   - file: Lov_populace.ipynb
@@ -9,6 +15,3 @@
   - file: Teplotni_bilance_Zeme.ipynb
   - file: Autonomni_rovnice_a_systemy.ipynb
   - file: Zaporna_zpetna_vazba_v_rustovych_modelech.ipynb
-- part: Integrál
-  chapters:
-  - file: Krivkovy_integral.ipynb
