@@ -1,3 +1,5 @@
+rm _build/html/*html
+
 jupyter-book build .
 
 for i in `ls _build/html/*.html | grep -v index.html | grep -v search.html`
