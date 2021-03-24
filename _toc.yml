@@ -1,0 +1,12 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+- part: Diferenciální rovnice
+  chapters:
+  - file: Autonomni_rovnice_a_systemy.ipynb
+  - file: Teplotni_bilance_Zeme.ipynb
+  - file: Zaporna_zpetna_vazba_v_rustovych_modelech.ipynb
+- part: Integrál
+  chapters:
+  - file: Krivkovy_integral.ipynb
