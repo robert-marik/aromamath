@@ -1,4 +1,4 @@
-# A-Ro-Ma-Math
+# Úvod do A-Ro-Ma-Math
 
 A-Ro-Ma-Math jsou **A**plikace **Mat**(-**h**)ematiky od **Ro**berta **Ma**říka. Tyto aplikace jsou uspořádány tematicky, nikoliv podle předmětů, ve kterých jsou ukázky zařazeny, ani podle harmonogramů výuky v těchto předmětech. 
 
@@ -6,7 +6,9 @@ Důraz je na problematiku spojenou s Lesnickou a dřevařskou fakultou, tj. na v
 
 Text je psán v prostředí Jupyter Notebook. To umožňuje široké spektrum využití. 
 
-* Můžete si prohlížet jako statický dokument. Pěkné, ale lepší je experimentovat s vlastními pokusy. Čtěte dál.
+> [Videoukázka.](https://youtu.be/P5ZzIOKe82k)
+
+* Můžete si vše prohlížet jako statický dokument. Pěkné, ale lepší je experimentovat s vlastními pokusy. Čtěte dál.
 * Dvěma kliknutími si můžete zápisník naklonovat do výpočetního prostředí Binder nebo Colab a samostatně upravovat dle libosti. Třeba to použít jako základ svého dokumentu. Licence knihy, kterou právě čtete, je velmi volná a takové použití umožňuje. U jednotlivých kapitol je nahoře ikonka rakety, která Vám naklonování zpřístupní.  (Na této stránce takovou ikonku nehledejte, hledejte až na stránkách s modely. Vpravo nahoře vedle ikonky pro Fullscreen a stažení)
 * Jupyter zápisníky, ve kterých jsou jednotlivé stránky napsány, jsou to nejmodernější, co je v roce 2021 na poli výpočtů k dispozici. Pokud si některou stránku naklonujete a zpřístupníte k vlastním úpravám, (viz předchozí bod) otevřou se Vám široké možnosti z hlediska pořizování textu i z hlediska provádění numerických nebo statistických analýz.
     * Budete mít přístup k jazyku Python, nejpoužívanějšímu jazyku na numerické výpočty. V prostředí Colab máte zdarma dostatek výpočetní síly i na tak komplikované věci jako strojové učení pro automatické rozpoznávání obrázků. Naše výpočty jsou proti tomu nic a pro cloudové superpočítače jako malina. Python je také nejjednodušší jazyk pro numerické výpočty a [rychle se s ním seznámíte](https://python.cz/zacatecnici/).
