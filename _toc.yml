@@ -8,6 +8,7 @@
 - part: Integrál
   chapters:
   - file: Krivkovy_integral.ipynb
+  - file: Dvojny_integral.ipynb
 - part: Diferenciální rovnice
   chapters:
   - file: Lov_populace.ipynb
