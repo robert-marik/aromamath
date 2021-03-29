@@ -9,6 +9,7 @@
   chapters:
   - file: Krivkovy_integral.ipynb
   - file: Dvojny_integral.ipynb
+  - file: Nezavislost_na_integracni_ceste.ipynb
 - part: Diferenciální rovnice
   chapters:
   - file: Lov_populace.ipynb
