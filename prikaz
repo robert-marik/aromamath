@@ -1,0 +1,5 @@
+bash build.sh
+rsync -r -v _build/html/* cornus.mendelu.cz:html/aromamath/
+
+git commit -m "Drobnosti" -a
+git push
