@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dvojný integrál &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Dvojny_integral';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nezávislost na integrační cestě" href="Nezavislost_na_integracni_ceste.html" />
+    <link rel="prev" title="Křivkový integrál" href="Krivkovy_integral.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Krivkovy_integral.html">Křivkový integrál</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dvojný integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nezavislost_na_integracni_ceste.html">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Populace_pod_tlakem_predatoru.html">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FCD.html">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/robert-marik/aromamath/main?urlpath=tree/Dvojny_integral.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/robert-marik/aromamath/blob/main/Dvojny_integral.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Dvojny_integral.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dvojný integrál</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerekvizita-tok-tepla-v-kruhove-desce">Prerekvizita - Tok tepla v kruhové desce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-problemu">Definice problému</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teplotni-pole-s-linearnim-poklesem-od-stredu">Teplotní pole s lineárním poklesem od středu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-toku-tepla-ve-vytvorenem-teplotnim-poli">Divergence toku tepla ve vytvořeném teplotním poli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#celkovy-vykon-zdroju-tepla-v-desce">Celkový výkon zdrojů tepla v desce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrola-vysledku-posouzenim-rozdilu-mezi-toky-na-hranici">Kontrola výsledku posouzením rozdílu mezi toky na hranici</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dvojny-integral">
+<h1>Dvojný integrál<a class="headerlink" href="#dvojny-integral" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Co zde najdete? V úvodu je vysvětleno, jak vypadá teplotní pole při vedení tepla v mezikruží (nebo například ve válcové izolaci trubek s horkou vodou). Nám tato situace nebude vyhovovat a budeme se snažit dodáním zdrojů tepla dosáhnout toho, aby teplota klesala námi předepsaným způsobem. Difuzní rovnice nám pomůže určit, jak silné zdroje je nutné dát do jednotlivých míst materiálu. A potom to přijde: budeme hledat celkový výkon zdrojů. Protože v každém místě bude jinak výkonný zdroj, není možné použít klasický součet (resp. násobení výkonu na plochu celkovou plochou), ale součet budeme muset realizovat integrálem. Výsledek poté zkontrolujeme celkovou bilancí toku na okrajích mezikruží. Tím si ukážeme si využití dvojného integrálu a současně cestu k bilanci sledující změnu množství stavové veličiny v konečně velkém objemu, tj. cestu k formulaci fyzikálních zákonů spojených s difuzní rovnicí v globálním tvaru.</p>
+</div></blockquote>
+<section id="prerekvizita-tok-tepla-v-kruhove-desce">
+<h2>Prerekvizita - Tok tepla v kruhové desce<a class="headerlink" href="#prerekvizita-tok-tepla-v-kruhove-desce" title="Link to this heading">#</a></h2>
+<p>Budeme uvažovat desku ve tvaru mezikruží. Vnitřní kružnice má poloměr roven jedné, vnější roven čtyřem. Vnitřní mezikruží udržujeme na teplotě 100 stupňů Celsia a okraj na teplotě 0 stupňů Celsia. To odpovídá “průměrnému gradientu” rovnému hodnotě $\frac{100}{3}$. Tento gradient by determinoval tok například ve stěně nebo v obdélníkové desce. V mezikruží tomu tak není, protože tok se “rozbíhá kolmo na kružnice”. Pokud nejsou v desce zdroje tepla, potom každou kružnicí o poloměru $r$ prochází stejný tok $Q$. Hustota $\vec q$ toku ve vzdálenosti $r$ od počátku je poté díky symetrii dána směrem od středu velikostí $$q =\frac{Q}{2\pi r}.$$ To znamená, že tok je nepřímo úměrný vzdálenosti. Pro rozložení teploty $T(r)$ platí $$\frac{\mathrm dT}{\mathrm dr}=-k \frac 1r$$ a po integraci vidíme, že teplota klesá logaritmicky.
+$$T(r) = T(1)+ \int_1^r -k\frac 1r\mathrm dr = 100-k \ln r.$$ Konstantu $k$ určíme z podmínky $T(4)=0$ což dává
+$$T(r)=100-\frac {100}{\ln 4}\ln r.$$ Teplotní profil vypadá následovně.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>                     <span class="c1"># knihovna na numerické výpočty (goniomerické funkce, gradient, 2D mřížka a dělení intervalu, ...)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span>           <span class="c1"># knihovna na technické výpočty (integrál)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># knihovna na kreslení</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">100</span><span class="o">-</span><span class="mi">100</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Teplota v závislosti na vzdálenosti od středu&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Vzdálenost&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Teplota&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9dadccf5907fddfc31780bf59c49dac4df9fc3cfcf04ad114210cafcda5347c3.png" src="_images/9dadccf5907fddfc31780bf59c49dac4df9fc3cfcf04ad114210cafcda5347c3.png" />
+</div>
+</div>
+<p>Vidíme, že křivka udávající teplotu jako funkci vzdálenosti od středu je prohnutá. Toto prohnutí je způsobeno geometrií úlohy a předpokládejme, že nám nevyhovuje. Dalo by se změnit?</p>
+</section>
+<section id="definice-problemu">
+<h2>Definice problému<a class="headerlink" href="#definice-problemu" title="Link to this heading">#</a></h2>
+<p>Konečně máme dělostřeleckou přípravu na vysvětlení toho, o co se budeme snažit. Úkol je následující: <strong>Podařilo by se teplotní profil v mezikruží narovnat? Aby teplota klesala rovnoměrně se vzdáleností od středu?</strong> Pokusíme se o to.</p>
+<ul class="simple">
+<li><p>Pokusíme se do desky přidat zdroje tak šikovně, aby teplota klesala lineárně, nikoliv logaritmicky.</p></li>
+<li><p>Výkonnost zdrojů v každém místě najdeme pomocí difuzní rovnice. Tedy z divergence toku. Tok najdeme Fourierovým zákonem, tedy z gradientu teploty.</p></li>
+<li><p>Výkon zdrojů v daném místě desky by nemusel být stejný. A pravěpodobně nebude. Bude tedy nutné posečítat příspěvky k celkovému výkonu zdrojů. To provedeme intergrací přes celé mezikruží.</p></li>
+<li><p>Výsledek porovnáme s tím, že výkon zdrojů musí vyrovnat nerovnost mezi toky na hranicích množiny .</p></li>
+</ul>
+</section>
+<section id="teplotni-pole-s-linearnim-poklesem-od-stredu">
+<h2>Teplotní pole s lineárním poklesem od středu<a class="headerlink" href="#teplotni-pole-s-linearnim-poklesem-od-stredu" title="Link to this heading">#</a></h2>
+<p>Pokud teplota klesá rovnoměrně se vzdáleností od počátku, je dána vztahem $$T(r)=(4-r)\frac {100}3.$$
+Tj. v kartézských souřadnicích $$T(x,y)=\left(4-\sqrt{x^2+y^2}\right)\frac {100}3.$$ Abychom mohli situaci studovat na čtvercové množině, předefinujeme navíc funkci tak, aby vně mezikruží byla konstantní. Tedy teplota je dána následovně.
+$$T(x,y)=\begin{cases}100 &amp; x^2+y^2 \leq 1 \cr \left(4-\sqrt{x^2+y^2}\right)\frac {100}3 &amp; 1\leq x^2+y^2\leq 4\cr 0 &amp; \text{jinak}\end{cases}$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>               <span class="c1"># teplota 100 stupňů na kružnici o poloměru 1, 0 stupňů na kružnici o poloměru 4 </span>
+                                 <span class="c1"># a lineárně klesající se vzdáleností od počátku</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="mi">3</span>
+  <span class="c1"># níže varianta se stacionárním rozložením teploty bez přítomnosti zdrojů</span>
+  <span class="c1"># jednu z variant použijte, druhou zapoznámkujte</span>
+  <span class="c1"># return (100-100/numpy.log(4)*numpy.log(numpy.sqrt(x**2+y**2)))  </span>
+    
+
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mi">500</span>   <span class="c1"># interval pro krelsení a počet dělících bodů (hustota mřížky)</span>
+<span class="n">krok</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span><span class="o">-</span><span class="n">xmin</span><span class="p">)</span><span class="o">/</span><span class="n">steps</span>         <span class="c1"># délka kroku</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">xmin</span><span class="p">:</span><span class="n">xmax</span><span class="p">:(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="n">xmin</span><span class="p">:</span><span class="n">xmax</span><span class="p">:(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># mrizka pro kresleni barevne mapy funkce dvou promennych</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>           <span class="c1"># mimo mezikruží teplotu ořežeme na hodnotu na okraji mezikruží</span>
+<span class="n">grady</span><span class="p">,</span> <span class="n">gradx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">krok</span><span class="p">)</span>        <span class="c1"># gradient teploty</span>
+<span class="n">tokx</span><span class="p">,</span> <span class="n">toky</span> <span class="o">=</span> <span class="o">-</span><span class="n">gradx</span><span class="p">,</span> <span class="o">-</span><span class="n">grady</span>                   <span class="c1"># tok tepla, jednotkový součinitel tepelné vodivosti</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+
+<span class="c1">## Vykreslení teploty a toku tepla</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>                     <span class="c1"># nastaveni schema pro barevnou mapu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Teplota&quot;</span><span class="p">)</span>          <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="p">[::</span><span class="mi">25</span><span class="p">,::</span><span class="mi">25</span><span class="p">],</span> <span class="n">y</span><span class="p">[::</span><span class="mi">25</span><span class="p">,::</span><span class="mi">25</span><span class="p">],</span> <span class="n">tokx</span><span class="p">[::</span><span class="mi">25</span><span class="p">,::</span><span class="mi">25</span><span class="p">],</span> <span class="n">toky</span><span class="p">[::</span><span class="mi">25</span><span class="p">,::</span><span class="mi">25</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>   
+                             <span class="c1"># vykreslení toku a na dvacetpětkrát hrubší mřížce, než na které probíhají výpočty</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Prostorové rozložení teploty s vyznačeným tokem tepla&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c69dd65cbb746d5c983e174078833a791d3a6b74996c8e99cc40ff471d3a1a6e.png" src="_images/c69dd65cbb746d5c983e174078833a791d3a6b74996c8e99cc40ff471d3a1a6e.png" />
+</div>
+</div>
+<p>Pokusili jsme se zajistit rovnoměrný pokles teploty. Můžeme si to ověřit graficky na řezu středem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)],</span><span class="n">z</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez středem&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">*</span><span class="mf">0.25</span><span class="p">)],</span><span class="n">z</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">*</span><span class="mf">0.25</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez čtvrtinou&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Teplota v závislosti na souřadnici x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Poloha na ose x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Teplota&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/94cb6ebab8cc6ef07c46307e1890388267f94f26da71c3b6056e477437ef25df.png" src="_images/94cb6ebab8cc6ef07c46307e1890388267f94f26da71c3b6056e477437ef25df.png" />
+</div>
+</div>
+<p>Můžeme zkontrolovat velikost gradientu, jestli je všude stejná. Nakreslíme 2D graf pro normu gradientu (což je při jednotkovém součinitelu tepelné vodivosti současně i norma toku). Měli bychom na mezikruží vidět všude stejnou barvu. V místech, kde je teplota konstnatní (mimo mezikruží) budou gradient i jeho norma nulové. Gradient vidíme výše a normu gradientu si nakreslíme samostatně. Měla by být nulová vně a konstantní uvnitř. Hodnota uvnitř by měla být $\frac {100}{3}$, protože teplotní rozdíl 100 stupňů odpovídá třem jednotkám délky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>                    <span class="c1"># nastaveni schema pro barevnou mapu</span>
+<span class="n">grad_norm</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tokx</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">toky</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">grad_norm</span><span class="p">,</span>
+                        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> 
+                        <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Velikost toku tepla&quot;</span><span class="p">)</span> <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Prostorové rozložení velikosti toku tepla&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/71b2f71bfaa23ad5c54cf17640790ee93074bab632b65c2228ffb7770985b3ce.png" src="_images/71b2f71bfaa23ad5c54cf17640790ee93074bab632b65c2228ffb7770985b3ce.png" />
+</div>
+</div>
+</section>
+<section id="divergence-toku-tepla-ve-vytvorenem-teplotnim-poli">
+<h2>Divergence toku tepla ve vytvořeném teplotním poli<a class="headerlink" href="#divergence-toku-tepla-ve-vytvorenem-teplotnim-poli" title="Link to this heading">#</a></h2>
+<p>Tok je $\vec q = -\nabla T$ (budeme uvažovat jednotkový součinitel tepelné vodivosti).
+Divergence toku je poté dána druhými derivacemi
+$$
+\nabla \cdot (-\nabla T) =
+-\frac{\partial ^2 T}{\partial x^2} - \frac{\partial ^2 T}{\partial y^2}.
+$$
+Pomocí konečných diferencí máme<br />
+$$ \frac{\partial^2 T}{\partial x^2}\approx \frac{T(x-h,y)-2T(x,y)+T(x+h,y)}{h^2} $$
+a
+$$ \frac{\partial^2 T}{\partial y^2}\approx  \frac{T(x,y-h)-2T(x,y)+T(x,y+h)}{h^2}. $$
+Odsud dostáváme numerický odhad pro divergenci toku ve tvaru
+$$\nabla \vec q =
+\nabla \cdot (-\nabla T) \approx -\frac{T(x-h,y)+T(x+h,y)+ T(x,y-h)+T(x,y+h)-4T(x,y)}{h^2}.
+$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divergence_toku</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">krok</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>          <span class="c1"># pole stejne dimenze jako pole z, ale slozene z nul</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>       <span class="c1"># dvojitý cyklus přes všechny vnitřní body desky</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="mi">4</span><span class="o">*</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">krok</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># odhad pomocí konečných diferencí</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="n">divergence</span> <span class="o">=</span> <span class="n">divergence_toku</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">krok</span><span class="p">)</span>      <span class="c1"># výpočet divergence toku</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grafická kontrola odhaluje problém v místech, kde napojujeme měnící se teplotní profil konstantní teplotou. Je tam obrovské zakolísání vyvolané náhradou spojité funkce funkcí vyčíslenou na konečně velké mřížce a náhradou derivací konečnými diferencemi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">4</span><span class="p">),:],</span><span class="n">divergence</span><span class="p">[:,</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">4</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Divergence toku tepla na vodorovném řezu deskou&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Poloha x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Divergence toku&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c558ef592921f50a75cf5a6d99d63cda277c690a4b3c82bfb7deb2131415eec5.png" src="_images/c558ef592921f50a75cf5a6d99d63cda277c690a4b3c82bfb7deb2131415eec5.png" />
+</div>
+</div>
+<p>V divergenci musíme odfiltrovat nežádoucí výkyvy, které vznikly napojením funkce dané analytickým předpisem na mezkruží a konstantní funkce mimo mezikruží. Konstanty použité pro toto ořezání byly stanoveny experimentálně z 2D obrázku, který následuje níže. Je samozřejmě možné použít vhodný automatický filtr, chceme však rychle postupovat k výpočtu dvojného integrálu a proto použijeme metodu experimentálně stanovených mezí.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divergence_opravena</span> <span class="o">=</span> <span class="n">divergence</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>              <span class="c1"># Přefiltrování divergence budeme dělat tak, aby původní hodonty zůstaly k dispozici</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">divergence_opravena</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1"># Dvojí cyklus přes všechny body mřížky</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">divergence_opravena</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">divergence</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">35</span> <span class="ow">or</span> <span class="n">divergence</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># Oprava výkyvů a nesmyslných hodnot ořezáním hodnot vzniklých diskretizací</span>
+            <span class="n">divergence_opravena</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">2</span><span class="p">),:],</span><span class="n">divergence_opravena</span><span class="p">[:,</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez středem&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">3</span><span class="p">),:],</span><span class="n">divergence_opravena</span><span class="p">[:,</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">3</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez třetinou&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">4</span><span class="p">),:],</span><span class="n">divergence_opravena</span><span class="p">[:,</span><span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">steps</span><span class="o">/</span><span class="mi">4</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez čtvrtinou&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">divergence_opravena</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;řez u kraje&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Divergence toku tepla na vodorovném řezu deskou&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Poloha x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Divergence toku&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="kc">None</span>            
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a68ef165cd349f8e90e95667ee9a7e4d9fbcf71c140143470d1844545d16fd6f.png" src="_images/a68ef165cd349f8e90e95667ee9a7e4d9fbcf71c140143470d1844545d16fd6f.png" />
+</div>
+</div>
+<p>Data jsou vyčištěna a můžeme pokračovat ve výpočtech. Vykreslíme prostorové rozložení divergence, tj. veličinu udávající, jak intenzivně v daném místě narůstá tok.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divergence</span> <span class="o">=</span> <span class="n">divergence_opravena</span>              <span class="c1"># dale pracujeme s opravenou divergenci</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>                    <span class="c1"># nastaveni schema pro barevnou mapu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">divergence</span> <span class="p">,</span>
+                        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> 
+                        <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>       <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Divergence toku tepla&quot;</span><span class="p">)</span>   <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Prostorové rozložení divergence toku tepla&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1447124af2675c3b978439cec8544af89b8edf46eae25c18840815fe0216f327.png" src="_images/1447124af2675c3b978439cec8544af89b8edf46eae25c18840815fe0216f327.png" />
+</div>
+</div>
+<p>Po vykreslení vidíme, jak rychle se daném místě mění tok. Difuzní rovnice níže nám tuto veličinu dá do souvislosti s výkonem zdrojů.</p>
+</section>
+<section id="celkovy-vykon-zdroju-tepla-v-desce">
+<h2>Celkový výkon zdrojů tepla v desce<a class="headerlink" href="#celkovy-vykon-zdroju-tepla-v-desce" title="Link to this heading">#</a></h2>
+<p>Dodáním zdrojů tepla do stacionární rovnice vedení tepla dostáváme
+$$ 0 = \sigma - \nabla \cdot(-\nabla T)$$
+a po osamostatnění zdrojů
+$$ \sigma = \nabla \cdot(-\nabla T).$$
+Divergence toku tedy udává, jaký je v daném místě zdroj, aby se udržel stávající stav lineárního poklesu teploty směrem od středu. To je pochopitelné i kvalitativní úvahou, kdy víme, že pro udržení stacionárního stavu se navýšení toku musí odněkud vzít - ze zdrojů. Přesněji, divergence udává hustotu zdrojů. Z obrázku s toutodivergencí vidíme, že výkon zdrojů se liší v závislosti na vzdálenosti od počátku. U středu je nutné mít výkonnější zdroje a jejich výkon musí směrem od středu klesat přesně předepsaným způsobem. Tento způsob vidíme na obrázku “Divergence toku tepla na vodorovném řezu středem”. Analytické řešení ukazuje, že výkon zdrojů je nepřímo úměrný vzdálenosti od počátku. Celkový výkon zdrojů dostaneme integrálem. Dvojný integrál vypočteme převodem na dvojnásobný použitím Fubiniovy věty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interval</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># definice intervalu pro integrování</span>
+              <span class="c1"># výpočet vnitřních integrálů z Fubiniovy integrací přes druhou proměnnou</span>
+<span class="n">F</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">divergence</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">interval</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">divergence</span><span class="p">))]</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>                <span class="c1"># výpočet vnějšího integrálu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">interval</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># definice intervalu pro integrování</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>               <span class="c1"># výpočet vnitřních integrálů z Fubiniovy integrací přes druhou proměnnou</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">F</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">divergence</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">interval</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">divergence</span><span class="p">))]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>                <span class="c1"># výpočet vnějšího integrálu</span>
+
+<span class="ne">AttributeError</span>: module &#39;scipy.integrate&#39; has no attribute &#39;simps&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Celkový výkon zdrojů je 622.</p>
+</section>
+<section id="kontrola-vysledku-posouzenim-rozdilu-mezi-toky-na-hranici">
+<h2>Kontrola výsledku posouzením rozdílu mezi toky na hranici<a class="headerlink" href="#kontrola-vysledku-posouzenim-rozdilu-mezi-toky-na-hranici" title="Link to this heading">#</a></h2>
+<p>Vyšlo to jak mělo? Zvolili jsme jednoduchý příklad, proto je možné se k dané hodnotě dobrat i ručně. Dokonce mnohem jednodušeji.</p>
+<ul class="simple">
+<li><p>Velikost gradientu toku je $\frac{100}3$, protože teplota klesne o sto stupňů na třech jednotkách délky</p></li>
+<li><p>Tok je v každém bodě kolmý na kružnice se středem v počátku a proto tok křivkou dostaneme jako součin velikosti toku a délky křivky.</p></li>
+<li><p>Celkový tok vnitřním mezikružím o poloměru $r=1$ je $$ \frac{100}3 2\pi.$$</p></li>
+<li><p>Celkový tok vnějším mezikružím o poloměru $r=4$ je $$ \frac{100}3 8\pi.$$</p></li>
+<li><p>Rozdíl mezi toky je $$\frac{100}3 8\pi - \frac{100}3 2\pi = \frac{600}3 \pi = 200\pi \approx 628.$$ Tento tok přibyl uvnitř mezikruží a dodaly jej externí zdroje.</p></li>
+<li><p>Oba výsledky, až na drobné odchylky, které je možno připsat na vrub aproximacím a nepřenostem z numerického výpočtu, jsou stejné.</p></li>
+</ul>
+</section>
+<section id="zaver">
+<h2>Závěr<a class="headerlink" href="#zaver" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ukázali jsme, že dvojným integrálem dokážeme posčítat příspěvky k celkové hodnotě v případě, že příspěvky jsou spojtě rozloženy v části dvourozměrné množiny.</p></li>
+<li><p>Zvolili jsme jednoduchý příklad, kdy se můžeme k vyjadřované veličině dopočítat ještě jiným způsobem, abychom si ověřili, že výpočet je v pořádku. Jiný příklad, kdy je možné se přesvědčit, zda je kód v pořádku je použití funkce udávající stacionární rozložení teploty na desce bez zdrojů, jak bylo odvozeno v úvodu. V tomto případě je celkový výkon zdrojů nulový. Tento výdledek není možné očekávat zcela přesně vlivem diskeretizace spojité funkce, ale kód by měl dávat prakticky nulovou divergenci a téměř nulový výkon zdrojů. Vyzkoušejte si.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Krivkovy_integral.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Křivkový integrál</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Nezavislost_na_integracni_ceste.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nezávislost na integrační cestě</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerekvizita-tok-tepla-v-kruhove-desce">Prerekvizita - Tok tepla v kruhové desce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-problemu">Definice problému</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teplotni-pole-s-linearnim-poklesem-od-stredu">Teplotní pole s lineárním poklesem od středu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-toku-tepla-ve-vytvorenem-teplotnim-poli">Divergence toku tepla ve vytvořeném teplotním poli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#celkovy-vykon-zdroju-tepla-v-desce">Celkový výkon zdrojů tepla v desce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrola-vysledku-posouzenim-rozdilu-mezi-toky-na-hranici">Kontrola výsledku posouzením rozdílu mezi toky na hranici</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

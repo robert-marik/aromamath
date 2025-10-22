@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Úvod do A-Ro-Ma-Math &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Konstitutivní zákony" href="Konstitutivni_zakony.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Krivkovy_integral.html">Křivkový integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dvojny_integral.html">Dvojný integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nezavislost_na_integracni_ceste.html">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Populace_pod_tlakem_predatoru.html">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FCD.html">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Úvod do A-Ro-Ma-Math</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="uvod-do-a-ro-ma-math">
+<h1>Úvod do A-Ro-Ma-Math<a class="headerlink" href="#uvod-do-a-ro-ma-math" title="Link to this heading">#</a></h1>
+<p>A-Ro-Ma-Math jsou <strong>A</strong>plikace <strong>Mat</strong>(-<strong>h</strong>)ematiky od <strong>Ro</strong>berta <strong>Ma</strong>říka. Tyto aplikace jsou uspořádány tematicky, nikoliv podle předmětů, ve kterých jsou ukázky zařazeny, ani podle harmonogramů výuky v těchto předmětech.</p>
+<p>Důraz je na problematiku spojenou s Lesnickou a dřevařskou fakultou, tj. na věci týkající se nauky o materiálu a otázky spojené s ekologií, biologií, životním prostředím.</p>
+<p>Text je psán v prostředí Jupyter Notebook. To umožňuje široké spektrum využití.</p>
+<blockquote>
+<div><p><a class="reference external" href="https://youtu.be/P5ZzIOKe82k">Videoukázka.</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Můžete si vše prohlížet jako statický dokument. Pěkné, ale lepší je experimentovat s vlastními pokusy. Čtěte dál.</p></li>
+<li><p>Dvěma kliknutími si můžete zápisník naklonovat do výpočetního prostředí Binder nebo Colab a samostatně upravovat dle libosti. Třeba to použít jako základ svého dokumentu. Licence knihy, kterou právě čtete, je velmi volná a takové použití umožňuje. U jednotlivých kapitol je nahoře ikonka rakety, která Vám naklonování zpřístupní.  (Na této stránce takovou ikonku nehledejte, hledejte až na stránkách s modely. Vpravo nahoře vedle ikonky pro Fullscreen a stažení)</p></li>
+<li><p>Jupyter zápisníky, ve kterých jsou jednotlivé stránky napsány, jsou to nejmodernější, co je v roce 2021 na poli výpočtů k dispozici. Pokud si některou stránku naklonujete a zpřístupníte k vlastním úpravám, (viz předchozí bod) otevřou se Vám široké možnosti z hlediska pořizování textu i z hlediska provádění numerických nebo statistických analýz.</p>
+<ul>
+<li><p>Budete mít přístup k jazyku Python, nejpoužívanějšímu jazyku na numerické výpočty. V prostředí Colab máte zdarma dostatek výpočetní síly i na tak komplikované věci jako strojové učení pro automatické rozpoznávání obrázků. Naše výpočty jsou proti tomu nic a pro cloudové superpočítače jako malina. Python je také nejjednodušší jazyk pro numerické výpočty a <a class="reference external" href="https://python.cz/zacatecnici/">rychle se s ním seznámíte</a>.</p></li>
+<li><p>Budete mít přístup k jazyku Markdown pro psaní textů. Neexistuje jednodušší alternativa pro psaní textů na počítači, než použití jednoduchých značek pro nadpisy, změny písma atd. Z webu <a class="reference external" href="https://lifehacky.cz/oda-na-markdown-co-to-vlastne-je-a-proc-se-bez-nej-neobejdete/">Óda na <em>markdown</em> – co to vlastně je a proč se bez něj neobejdete</a>: <em>Tvůrce tohoto značkovacího jazyka John Gruber prohlásil, že markdown se naučí používat každý, kdo rozumí smajlíkům. Jakmile si osvojíte prostá markdownová pravidla, propadnete jeho kouzlu a budete své texty psát už jen v něm. Budete se divit, že jste mohli psát jinak.</em></p></li>
+<li><p>Budete mít přístup k jazyku LaTeX. LaTeX je nejrychlejší, nejspolehlivější, nejtrvanlivější, nejlépe přenositelná, nejvíce typograficky propracovaná metoda psaní vzorců. Slyšeli jste, že je těžký na naučení? To platilo dávno a jenom pro dokumenty tvořené celé v LaTeXu. Pokud v LaTeXu píšeme jenom matematiku a zbytek necháme na Markdownu, není na vzorce nic jednoduššího.</p></li>
+<li><p>S programovacím jazykem Python se můžete naučit i programy na kreslení grafů jako Matplotlib. Mrkněte se do textu této knihy. Pokud se vám bude tato jednoduchá metoda kreslení grafů líbit, naučte se na <a class="reference external" href="https://www.w3schools.com/python/matplotlib_intro.asp">základy v rychlokurzu</a> a poté používejte na vlastní projekty. Začněte mírným modifikováním již hotových a zpřístupněných věcí. Pokud něco nefunguje, použijte Google. Určitě podobný problém již někdo řešil, ptal se na nějakém webu určeném pro otázky a odpovědi a tam mu byla poskytnuta rada. Tuto radu můžete použít i Vy.</p></li>
+<li><p>Se skriptovacím přístupem můžete projekt přirozeně rozdělit na moduly, kde se například nejprve zpracovávají data a poté vykreslují. S takovým modulárním přístupem máte na výběr mezi více nástroji a tento výběr můžete kdykoliv změnit podle aktuálních preferencí. Data si vykreslíte spolehlivým nástrojem Matplotlib, viz například <a class="reference external" href="http://user.mendelu.cz/marik/aromamath/Lov_populace.html">Vývoj populace vystavené lovu</a>. Pokud se Vám výstup nelíbí, nebo jej potřebujete mít modernější, předáte kreslící části knihovně Bokeh, jako například v modelu <a class="reference external" href="http://user.mendelu.cz/marik/aromamath/Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a>. Diferenciální rovnice vyřešíte nástroji knihovny SciPy. Ale jakmile najdete něco úžasnějšího, bez čeho nemůžete být, vyměníte jenom proceduru řešící rovnici. Vše ostatní běží jak má a dělá to co potřebujete. Takový modulární přístup vede k tomu, že projekt, na kterém pracujete, po dokončení neumře, ale bude možné jej nadále modernizovat.</p></li>
+</ul>
+</li>
+</ul>
+<p>Nejsnazší cesta, jak začít pracovat s numerickými modely a jejich analýzou je získat ostruhy spouštěním cizího kódu a postupně modifikovat a spojovat dle svých požadavků vlastní příkazy se snipety jiných autorů. Nenápadnou formou se tak čtenář, který je dostatečně motivovaný, naučí využívat sílu skriptovacích nástrojů k analýze numerickými postupy. Tento přístup je výhodný i při statistickém zpracování dat. Oproti klasickému klikání v Excelu můžete jednu analýzu použít v cyklu opakovaně na milion dalších tabulek. A poté mírnou úpravou zase na jiný druh tabulek.</p>
+<p>Aby byla práce s modely co nejsnazší, je kód ukázek v knize poměrně bohatě okomentován. Váš kód tedy nebude tak ukecaný, ale jistá míra komentářů je vhodná i když člověk píše pouze pro vlastní využití. Pro detailnější popis jednotlivých příkazů využijte Google. Často lépe než definice příkazu z manuálu poslouží reakce v diskusním fóru, kde se na problematiku někdo ptá. Například na <a class="reference external" href="https://stackexchange.com/">https://stackexchange.com/</a></p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="Konstitutivni_zakony.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Konstitutivní zákony</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

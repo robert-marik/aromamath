@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nezávislost na integrační cestě &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Nezavislost_na_integracni_ceste';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Populace vystavená lovu" href="Lov_populace.html" />
+    <link rel="prev" title="Dvojný integrál" href="Dvojny_integral.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Krivkovy_integral.html">Křivkový integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dvojny_integral.html">Dvojný integrál</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Populace_pod_tlakem_predatoru.html">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FCD.html">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/robert-marik/aromamath/main?urlpath=tree/Nezavislost_na_integracni_ceste.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/robert-marik/aromamath/blob/main/Nezavislost_na_integracni_ceste.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Nezavislost_na_integracni_ceste.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Nezávislost na integrační cestě</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorove-pole-se-skalarnim-potencialem">Vektorové pole se skalárním potenciálem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorove-pole-bez-skalarniho-potencialu">Vektorové pole bez skalárního potenciálu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potencialove-versus-nepotencialove-pole">Potenciálové versus nepotenciálové pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="nezavislost-na-integracni-ceste">
+<h1>Nezávislost na integrační cestě<a class="headerlink" href="#nezavislost-na-integracni-ceste" title="Link to this heading">#</a></h1>
+<p>V učebnicích často najdete příklady na výpočet křivkového integrálu pomocí potenciálu, protože toto je jednodušší v ručně vypočítatelných příkladech. Pro numerickou integraci je často situace přesně opačná. Křivkový integrál je relativně snadné vypočítat robustními metodami a jeho výpočet vede k jedné z cest, jak potenciál určit.</p>
+<p>Zkusíme si problematiku ilustrovat na příkladu dvou vektorových polí a dvou integračních cest v každém z nich.</p>
+<ul class="simple">
+<li><p>První pole bude nevírové, bude v něm existovat skalární potenciál a integrace po obou cestách (zvolíme přímku a kubickou parabolu) dá stejný výsledek. Kterákoliv z těchto “cest” vede ke stejné skalární funkci, která ekvivalentním způsobem charakterizuje vektorové pole a je skalárním potenciálem tohoto pole.</p></li>
+<li><p>Druhé vektorové pole bude vírové, nebude v něm existovat skalární potenciál a poznáme to podle toho, že pokud se budeme snažit jej hledat, tak skalární funkce, která by mohla jeho roli hrát, bude vycházet jinak pro přímky a jinak pro kubické funkce.</p></li>
+</ul>
+<section id="vektorove-pole-se-skalarnim-potencialem">
+<h2>Vektorové pole se skalárním potenciálem<a class="headerlink" href="#vektorove-pole-se-skalarnim-potencialem" title="Link to this heading">#</a></h2>
+<p>Budeme si demonstrovat závislost či nezávislost na integrační cestě. Budeme pro zadané vektorové pole $$\vec F=(6x^2y+x+y)\vec i + (2x^3+x)\vec j$$ počítat křivkový integrál po dvou různých křivkách, po přímce a po kubické parabole. Křivky budou vycháztet z počátku a koncový bod bude parametrizován, abychom jím mohli pohybovat v rovině. Budeme tak moci vypočítat křivkový integrál z počátku do libovolného bodu roviny.</p>
+<p>Ve cvičení <a class="reference external" href="http://user.mendelu.cz/marik/am/slidy/cviceni/cviceni07.md.html#kmenov%C3%A1-funkce-pomoc%C3%AD-k%C5%99ivkov%C3%A9ho-integr%C3%A1lu">bylo ukázáno</a>, že k tomuto vektorovému poli existuje kmenová funkce $$ \varphi (x,y)=2x^3y+\frac 12 x^2+xy+C.$$ Nyní si tento proces vyzkoušíme numericky. Protože budeme integrovat z počátku, očekáváme, že výsledkem bude potenciál, který je v počátku roven nule, tj. funkce
+$$ \varphi (x,y)=2x^3y+\frac 12 x^2+xy.$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>                     <span class="c1"># knihovna na numerické výpočty (goniomerické funkce, gradient, 2D mřížka a dělení intervalu, ...)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span>           <span class="c1"># knihovna na technické výpočty (integrál)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># knihovna na kreslení</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>      <span class="c1"># diskretizace intervalu pro x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>      <span class="c1"># diskretizace intervalu pro y</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># mřížka v rovině z bodů, do kterých budeme počítat křivkový integrál</span>
+<span class="n">PotencialPrimka</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>    <span class="c1"># naplnění pole pro výsledky integrace po přímkách nulami</span>
+<span class="n">PotencialParabola</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>  <span class="c1"># naplnění pole pro výsledky integrace po kubických parabolách nulami</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zkusíme dvě integrační cesty z bodu $(0,0)$ do bodu $(x,y)$. Přímku $$\vec r(t)=xt\vec i + yt\vec j, \quad t\in[0,1] $$ a kubickou parabolu $$\vec r(t)=xt\vec i + yt^3\vec j, \quad t\in[0,1].$$  Křivkové integrály přetransformujeme na Riemannovy
+$$\int_0^1 P(xt,yt)x+Q(xt,yt)y, \mathrm dt $$
+pro integrál po přímce a
+$$\int_0^1 P(xt,yt^3)x+Q(xt,yt^3)y3t^2, \mathrm dt $$
+pro integrál po parabole a numerickou integrací tyto integrály vypočteme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">KrivkovyIntegralPrimka</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>                  <span class="c1"># Definice procedury pro vypocet integralu po přímce</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>                         <span class="c1"># Nastavíme interval pro diskretizaci integrálu</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">Q</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">b</span>               <span class="c1"># Vypočteme skalární součin vektorového pole a tečného vektoru k přímce</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span><span class="n">t</span><span class="p">))</span>          <span class="c1"># Vypočteme integrál a vrátíme jako výstup funkce</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">KrivkovyIntegralParabola</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>                <span class="c1"># Definice procedury pro vypocet integralu po přímce</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>                         <span class="c1"># Nastavíme interval pro diskretizaci integrálu  </span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">Q</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Vypočteme skalární součin vektorového pole a tečného vektoru ke kubické parabole</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span><span class="n">t</span><span class="p">))</span>          <span class="c1"># Vypočteme integrál a vrátíme jako výstup funkce</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nadefinujeme komponenty vektorového pole a vypočteme křivkové inetrgály do jednotlivých bodů v rovině. Ve dvojitém cyklu tedy nakonec počítáme obrovské množství intergrálů, ale ani tak to moc dlouho netrvá.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">P</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>    <span class="c1"># definice komponent vektorového pole</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">Q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>            <span class="c1"># Vyplníme pole s hodnotami potenciálu příslušnými hodnotami v cyklu přes první a druhou proměnnou</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">PotencialPrimka</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralPrimka</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>      <span class="c1"># Výpočet a uložení integálu po přímce</span>
+        <span class="n">PotencialParabola</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralParabola</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>  <span class="c1"># Výpočet a uložení integálu po kubické parabole</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>            <span class="c1"># Vyplníme pole s hodnotami potenciálu příslušnými hodnotami v cyklu přes první a druhou proměnnou</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">PotencialPrimka</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralPrimka</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>      <span class="c1"># Výpočet a uložení integálu po přímce</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">PotencialParabola</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralParabola</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>  <span class="c1"># Výpočet a uložení integálu po kubické parabole</span>
+
+<span class="nn">Cell In[3], line 4,</span> in <span class="ni">KrivkovyIntegralPrimka</span><span class="nt">(P, Q, a, b)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>                         <span class="c1"># Nastavíme interval pro diskretizaci integrálu</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">integrand</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">Q</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">b</span>               <span class="c1"># Vypočteme skalární součin vektorového pole a tečného vektoru k přímce</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">return</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span><span class="n">t</span><span class="p">))</span>
+
+<span class="ne">AttributeError</span>: module &#39;scipy.integrate&#39; has no attribute &#39;simps&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>                     <span class="c1"># nastaveni schema pro barevnou mapu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">PotencialPrimka</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Potenciál&quot;</span><span class="p">)</span> <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Výsledky integrálů po přímkách&quot;</span><span class="p">)</span> <span class="c1"># nadpis grafu</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">PotencialParabola</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Potenciál&quot;</span><span class="p">)</span> <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Výsledky integrálů po parabolách&quot;</span><span class="p">)</span> <span class="c1"># nadpis grafu</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1f9bdbd46db4a9ac9bbe0381fc43af5409b10eaba90e6b8b5fe44bafe6fedb3.png" src="_images/c1f9bdbd46db4a9ac9bbe0381fc43af5409b10eaba90e6b8b5fe44bafe6fedb3.png" />
+</div>
+</div>
+<p>Vidíme, že obrázky vypadají přibližně stejně. To je dobré znamení, ale přesvědčivější bude zjistit, o kolik se výsledky liší numericky. Najdeme maximum  a průměr absolutní hodnoty rozdílu. Po výpočtu vidíme, že ve srovnání s funkčními hodnotami je tento rozdíl zanedbatelný. Je připsatelný na vrub tomu, že neintegrujeme symbolicky a přesně, ale numericky na mřížce s konečně velkým krokem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">PotencialPrimka</span><span class="o">-</span><span class="n">PotencialParabola</span><span class="p">))</span>   <span class="c1"># Maximum absolutní hodnoty rozdílu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0020979988173621678
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">PotencialPrimka</span><span class="o">-</span><span class="n">PotencialParabola</span><span class="p">))</span>  <span class="c1"># Průměr absolutní hodnoty rozdílu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0002773205040675051
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vektorove-pole-bez-skalarniho-potencialu">
+<h2>Vektorové pole bez skalárního potenciálu<a class="headerlink" href="#vektorove-pole-bez-skalarniho-potencialu" title="Link to this heading">#</a></h2>
+<p>Pokusíme se provést totéž co výše pro vektorové pole $$ \vec F=x\vec i+(y-x^2)\vec j,$$ tj. komponenty vektorového pole budou $$ P(x,y)=x $$ a $$ Q(x,y)=y-x^2.$$
+Najdeme křivkové integrály z počátku do bodu $(x,y)$ a znázorníme výsledné hodnoty graficky v rovině. Použijeme dvě různé integrační cesty. To povede ke dvěma různým výsledkům, protože $$ \begin{aligned}\frac{\partial P}{\partial y}&amp;=0\cr \frac{\partial Q}{\partial x}&amp;=-2x\end{aligned}$$
+a obě parciální derivace jsou různé. To znamená, že vektorová funkce nemá potenciál a v takovém případě snaha integrovat po různých cestách vede k různým výsledkům. Obrázky jsou zřetelně odlišné.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">P</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>         <span class="c1"># definice komponent nového vektorového pole</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">Q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">PotencialPrimka</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>    <span class="c1"># vynulování polí pro uložení výsledků</span>
+<span class="n">PotencialParabola</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>      <span class="c1"># integrace do jednotlivých bodů mřížky ve dvojitém cyklu přes všechny body této mřížky</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">PotencialPrimka</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralPrimka</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>      <span class="c1"># výpočet integrálu po přímce</span>
+        <span class="n">PotencialParabola</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">KrivkovyIntegralParabola</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>   <span class="c1"># výpočet integrálu po kubické parabole</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+
+<span class="n">Zmin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">([</span><span class="n">PotencialPrimka</span><span class="p">,</span> <span class="n">PotencialParabola</span><span class="p">])</span>   <span class="c1"># Určíme minimum a maximumu pro stavení barevné škály</span>
+<span class="n">Zmax</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">([</span><span class="n">PotencialPrimka</span><span class="p">,</span> <span class="n">PotencialParabola</span><span class="p">])</span>   <span class="c1"># </span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">PotencialPrimka</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Zmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Zmax</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Potenciál&quot;</span><span class="p">)</span> <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Výsledky integrálů po přímkách&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">PotencialParabola</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Zmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Zmax</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Potenciál&quot;</span><span class="p">)</span> <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Výsledky integrálů po parabolách&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ace0c2f67d6e02c0555d2ba56d747b15fb95fd271d760b24a2b3856ae68e6ed8.png" src="_images/ace0c2f67d6e02c0555d2ba56d747b15fb95fd271d760b24a2b3856ae68e6ed8.png" />
+</div>
+</div>
+<p>Grafická kontrola je dostatečně průkazná, v pravém horním rohu je situace silně odlišná. Můžeme vypočítat i maximum rozdílu mezi funkčními hodnotami. Je srovnatelné s funkčními hodnotami, tedy nemůže být připsáno na vrub diskretizaci.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">PotencialPrimka</span><span class="o">-</span><span class="n">PotencialParabola</span><span class="p">))</span>   <span class="c1"># maximální hodnota, o kterou se liší výpočet integrálů po různých cestách</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.066713114092696
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">PotencialPrimka</span><span class="o">-</span><span class="n">PotencialParabola</span><span class="p">))</span> <span class="c1"># průměrná hodnota, o kterou se liší výpočet integrálů po různých cestách</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.9155578523049726
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="potencialove-versus-nepotencialove-pole">
+<h2>Potenciálové versus nepotenciálové pole<a class="headerlink" href="#potencialove-versus-nepotencialove-pole" title="Link to this heading">#</a></h2>
+<p>Proč vlastně chceme vědět, zda je možné ve vektrorovém zavést skalární potenciál? Existence skalárního potenciálu umožní přejít k alternativnímu popisu pole. V naprosté většině případů se to vyplatí, protože se skalárními funkcemi se pracuje lépe než s funkcemi vektorovými.</p>
+<p>Jako robustnější kriterium než porovnávat obrázky je možné například testovat integrály po uzavřených křivkách. Pokud vychází nulové, je vektorové pole potenciálové. Pokud integrály po uzavřených křivkách vychází výrazně nenulové (tak, že případná nenulovost nemůže být způsobena jenom zaokrouhlováním při diskretizaci spojité veličiny), je to signál toho, že skalární popis pomocí potenciálu není možno zavést.</p>
+<p>Další varianta testu na možnost zavedení potenciálu je výpočet rotace derivováním. To si ukážeme v následující. Protože máme dvourozměrné pole, má rotace první dvě komponenty nulové a zkráceně rotací budeme nazývat jenom třetí komponentu vektoru rotace. Rotaci vypočteme vzorcem
+$$\nabla \times (P,Q,0)=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k.$$
+Derivace vystupující v této rotaci budeme počítat pomocí centrálních diferencí podle vzorců
+$$\frac{\partial Q}{\partial x}\approx \frac{Q(x+h,y)-Q(x-h,y)}{2h}$$
+a
+$$\frac{\partial P}{\partial y}\approx \frac{P(x,y+h)-P(x,y-h)}{2h}.$$
+Délku kroku odvodíme z disketizace prostoru.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rotace</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>                                <span class="c1"># nadefinujeme funkci pro výpoče rotace</span>
+    <span class="n">krokx</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>               <span class="c1"># vzdálenost mezi sousedními uzly na dělení pro x se použije jako ...</span>
+    <span class="n">kroky</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>               <span class="c1">#       ...  diferenční krok při derivaci podle x, podobně pro y</span>
+    <span class="n">vysledek</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>   <span class="c1"># příprava pole pro uložení výpočtů</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>                 <span class="c1"># dvojitý cyklus pro výpočet hodnot na dvourozměnré mřížce</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>             
+            <span class="n">dQ_podle_x</span><span class="o">=</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">-</span><span class="n">Q</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">krokx</span><span class="p">)</span>  <span class="c1"># derivace Q podle x</span>
+            <span class="n">dP_podle_y</span><span class="o">=</span><span class="p">(</span><span class="n">P</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">P</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kroky</span><span class="p">)</span>  <span class="c1"># derivace P podle y</span>
+            <span class="n">vysledek</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span>  <span class="n">dQ_podle_x</span> <span class="o">-</span> <span class="n">dP_podle_y</span>              <span class="c1"># rotace vektoroveho pole (P,Q)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>                                              <span class="c1"># výstup výpočtu rotace</span>
+
+<span class="c1"># Abychom nemuseli znovu pojmenovávat funkce, jejichž rotaci počítáme, použijeme trik s nepojmenovanou ...</span>
+<span class="c1">#     ... funkcí pomocí konstrukce lambda x,y:funkční hodnota</span>
+<span class="n">R1</span><span class="o">=</span><span class="n">rotace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># výpočet rotace vektorového pole (6*x^2+x+y, 2*x^3+x)</span>
+<span class="n">R2</span><span class="o">=</span><span class="n">rotace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>                     <span class="c1"># výpočet rotace vektorového pole (x, y-x^2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Po výpočtu je možno například najít maximální absolutní hodnotu, nebo součet absolutních hodnot či jejich druhých mocnin, nebo vykreslit vypočtené hodnoty graficky. Zvolíme poslední možnost, použijeme stejné příkazy jako u vizualizce výsledku křivkového integrálu po různých cestách výše. Jenom musíme vzít v úvahu, že pro porovnání obrázků je nutné najít společné maximum a minium zobrazovaných funkcí a podle toho nastavit barevnou škálu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># inicializace grafiky</span>
+
+<span class="n">Zmin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">([</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">])</span>   <span class="c1"># Určíme minimum a maximumu pro stavení barevné škály</span>
+<span class="n">Zmax</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">([</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">])</span>   <span class="c1"># </span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Zmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Zmax</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rotace&quot;</span><span class="p">)</span>    <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rotace vektorového pole majícího potenciál&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                   <span class="c1"># začneme kreslit do prvního grafu</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Zmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">Zmax</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rotace&quot;</span><span class="p">)</span>    <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># stejné měřítko na osách, aby se kružnice nedeformovaly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rotace vektorového pole ve kterém neexistuje potenciál&quot;</span><span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/98cd88605319da5ab9fbd23dc083b025c2836cb0eab9611d72da880734f30f9c.png" src="_images/98cd88605319da5ab9fbd23dc083b025c2836cb0eab9611d72da880734f30f9c.png" />
+</div>
+</div>
+</section>
+<section id="zaver">
+<h2>Závěr<a class="headerlink" href="#zaver" title="Link to this heading">#</a></h2>
+<p>Hledali jsme pomocí křivkového integrálu skalární potenciál vektorového pole. Jednou z toho v případě předem odsouzeném pro nezdar, kdy skalární potenciál neexistuje. Zvolili jsme pro jednoduchost grafické porovnání, protože zřetelně ilustruje rozdíl. Výsledek jsme potvrdili výpočtem rotace. U vektorového pole se skalárním potanciálem je rotace nulová, u druhého nenulová.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Dvojny_integral.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dvojný integrál</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lov_populace.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Populace vystavená lovu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorove-pole-se-skalarnim-potencialem">Vektorové pole se skalárním potenciálem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vektorove-pole-bez-skalarniho-potencialu">Vektorové pole bez skalárního potenciálu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potencialove-versus-nepotencialove-pole">Potenciálové versus nepotenciálové pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

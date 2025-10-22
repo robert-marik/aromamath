@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Periodické přemnožování obaleče &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Populace_pod_tlakem_predatoru';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Energetická bilance Země a skleníkový efekt" href="Teplotni_bilance_Zeme.html" />
+    <link rel="prev" title="Populace vystavená lovu" href="Lov_populace.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Krivkovy_integral.html">Křivkový integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dvojny_integral.html">Dvojný integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nezavislost_na_integracni_ceste.html">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FCD.html">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/robert-marik/aromamath/main?urlpath=tree/Populace_pod_tlakem_predatoru.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/robert-marik/aromamath/blob/main/Populace_pod_tlakem_predatoru.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Populace_pod_tlakem_predatoru.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Periodické přemnožování obaleče</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicky-model">Matematický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nondimenzionalizace">Nondimenzionalizace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericky-model">Numerický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicky-model-premnozeni-kurovce">Matematický model přemnožení kůrovce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literatura">Literatura</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="periodicke-premnozovani-obalece">
+<h1>Periodické přemnožování obaleče<a class="headerlink" href="#periodicke-premnozovani-obalece" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>        <span class="c1"># knihovna pro statické grafy a grafy kreslit sem do zápisníku</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline               
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>                           <span class="c1"># knihovna pro numerické výpočty</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>  <span class="c1"># řešení diferenciálních rovnic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Následující model je model obaleče <em>Choristoneura fumiferana</em>, který periodicky atakuje lesy severní Ameriky. Jeho populace je relativně malá, ale některé roky se velikost populace zvýší tisícinásobně a dokáže zahubit $80$ procent stromů v lese. Tedy prakticky zničit les. Model sestavili dva matematikové (D. Ludwig a D. D. Jones) a jeden ekolog (C. S. Holling), aby nahradili starý počítačový model Canadian Forestry Service, který používal <strong>30 654 proměnných</strong> spojených diferenčními rovnicemi. Nový model pracoval jenom se třemi rovnicemi.</p>
+<p>Zde si představíme zjednodušenou verzi o jediné rovnici. Princip zjednodušení je v úvaze, že dynamika hmyzu je mnohem rychlejší než dynamika lesa a při sledování pouze populace hmyzu si můžeme dovolit považovat parametry lesa za konstantní. Matematikové mluví o kvazistacionárním přiblížení. Plný model kromě dobrých výsledků podal i objasnění příčiny náhlého masového přemnožení obaleče, ke kterému docházelo přibližně vždy po 35 letech. Původní počítačový model dokázal pouze počítat simulace.</p>
+<section id="matematicky-model">
+<h2>Matematický model<a class="headerlink" href="#matematicky-model" title="Link to this heading">#</a></h2>
+<p>Zde představený model je jeden z klasických modelů popsaných v mnoha učebnicích. Můžeme vycházet například z knihy  <a class="reference external" href="https://katalog.mendelu.cz/documents/223086?back=https%3A%2F%2Fkatalog.mendelu.cz%2Fsearch%3Ftype%3Dglobal%26q%3DDYNAMICAL%2BSYSTEMS%2BFOR%2BBIOLOGICAL%2BMODELING&amp;amp;group=223086,175427,175821">Brauer, Kribs, Dynamical systems for biological modelling</a>, plný text je pro uživatele MENDELU zdarma.</p>
+<p>Populaci obaleče je možno modelovat logistickou rovnicí $$\frac{\mathrm dx}{\mathrm dt}=rx\left(1-\frac xK\right)-H\frac{x^2}{x^2+A^2},$$
+kde druhý člen na pravé straně charakterizuje vliv predátorů. Jedná se o funkci, která zpomaluje růst, podobně jako lov v <a class="reference external" href="http://user.mendelu.cz/marik/aromamath/Lov_populace.html">modelu s populací vystavené konstantnímu lovu</a>. Protože však predátoři mají určitou hodnotu, nad kterou jsou saturovaní a nestačí brzdit růst populace, je tato funkce ohraničená. Platí $$H\frac{x^2}{x^2+A^2}  \leq H.$$ To má dalekosáhlé důsledky.
+Pro určité hodnoty parametrů může mít pravá strana rovnice pro $x&gt;0$ jeden nebo tři nulové body. Abychom to pěkně viděli i s reálými dopady, nejprve si model zjednodušíme a poté vyřešíme pro různé hodnoty parametrů.</p>
+</section>
+<section id="nondimenzionalizace">
+<h2>Nondimenzionalizace<a class="headerlink" href="#nondimenzionalizace" title="Link to this heading">#</a></h2>
+<p>Pro jednodušší kvalitativní analýza modelu snížíme počet parametrů. Například:</p>
+<ul class="simple">
+<li><p>zvolíme jednotku veličiny $x$ tak, aby koeficient $A$ byl roven jedné,</p></li>
+<li><p>zvolíme jednotku času tak, aby koeficient $H$ byl roven jedné</p></li>
+<li><p>vytkneme proměnnou $x$.</p></li>
+</ul>
+<p>Model má potom tvar
+$$\frac{\mathrm dx}{\mathrm dt}=x\left [ r\left(1-\frac xK\right)-\frac{x}{x^2+1}\right].$$ Na pravé straně v hranaté závorce zůstává rozdíl funkce $\frac{x}{x^2+1}$ neobsahující žádný parametr a lineární funkce, se kterou snadno dokážeme manipulovat.
+Tento model je možné také zapsat ve tvaru
+$$\frac {\frac{\mathrm dx}{\mathrm dt}}{x}=r\left(1-\frac xK\right)-\frac{x}{x^2+1}$$
+a výraz na levé straně, podíl rychlosti růstu a velikosti růstu, interpretujeme jako relativní rychlost růstu.</p>
+</section>
+<section id="numericky-model">
+<h2>Numerický model<a class="headerlink" href="#numericky-model" title="Link to this heading">#</a></h2>
+<p>Nakreslíme křivky definované pravými stranami a řešení diferenciální rovnice pro různé počáteční podmínky</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xmax</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">xspan</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">xspan</span>
+<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1"># nastavení parametrů, pro které budeme počítat model</span>
+<span class="c1"># uspořádané dvojice [r,K]</span>
+<span class="n">parametry</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span> <span class="p">]</span> 
+
+<span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">parametry</span><span class="p">:</span>                               <span class="c1"># cyklus přes různé hodnoty parametrů</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># inicializace a nastavení obrázku, kreslíme tři obrázky vedle sebe</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Model </span><span class="si">%s</span><span class="s1">: Dynamika populace pro r=</span><span class="si">%s</span><span class="s1"> a K=</span><span class="si">%s</span><span class="s1">.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">count</span><span class="p">,</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    
+    <span class="n">r</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">par</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                            <span class="c1"># kreslíme do prvního obrázku</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">K</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Relativní rychlost rozmnožování&#39;</span><span class="p">)</span>         <span class="c1"># přímka, růst popualce</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Relativní rychlost predace&#39;</span><span class="p">)</span>      <span class="c1"># působení predátorů</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>                   <span class="c1"># osa od nuly</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Růstové křivky I&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Velikost populace&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rychlost růstu&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                            <span class="c1"># kreslíme do druhého obrázku</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="p">])</span>                   <span class="c1"># nastavení rozsahu pro svislou osu</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>                    <span class="c1"># nastavení rozsahu pro vodorovnou osu</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">K</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Relativní rychlost rozmnožování&#39;</span><span class="p">)</span>        <span class="c1"># přímka v soustavě souřadnic se svislou osou x</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Relativní rychlost predace&#39;</span><span class="p">)</span>      <span class="c1"># působení predátorů v soustavě souřadnic se svislou osou x</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Růstové křivky I&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Velikost populace&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Rychlost růstu&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>                  <span class="c1"># kreslíme do třetího obrázku</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="p">)</span>           <span class="c1"># nastavení rozsahu pro svislou osu</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>      <span class="c1"># cyklus přes počáteční podmínky</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">K</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="n">tspan</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">tspan</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># vykreslení řešení</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Časový vývoj populace&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Čas&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Velikost populace&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#f0f0f0&#39;</span><span class="p">)</span> <span class="c1"># šedé pozadí obrázku</span>
+
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c84c97dfaec3c2175c0cab52cf0ef03be7270df8c3b24e9abdf6330cb1c8f0bb.png" src="_images/c84c97dfaec3c2175c0cab52cf0ef03be7270df8c3b24e9abdf6330cb1c8f0bb.png" />
+<img alt="_images/decbf79e229a4c5ee163d338ee80cd4199f0576fe3114c4e980c0190d53d4e6b.png" src="_images/decbf79e229a4c5ee163d338ee80cd4199f0576fe3114c4e980c0190d53d4e6b.png" />
+<img alt="_images/a77625699e9e0d0d41063511951efa8f95b2a0398abf574995a00cedf7432d74.png" src="_images/a77625699e9e0d0d41063511951efa8f95b2a0398abf574995a00cedf7432d74.png" />
+<img alt="_images/e186f6a8f86f83407d9cb6cb8695f4a775707d6f5f264a09d30324e9c81b3445.png" src="_images/e186f6a8f86f83407d9cb6cb8695f4a775707d6f5f264a09d30324e9c81b3445.png" />
+<img alt="_images/ef6a0226251cdf8a45f5ef0e180f31577067acd879c35aab99e44b8aa1d81108.png" src="_images/ef6a0226251cdf8a45f5ef0e180f31577067acd879c35aab99e44b8aa1d81108.png" />
+<img alt="_images/87048d09989459c7db4fe7d3a411d7c409787cc8085b5a5f00fb0afba7ffd68e.png" src="_images/87048d09989459c7db4fe7d3a411d7c409787cc8085b5a5f00fb0afba7ffd68e.png" />
+<img alt="_images/96eece6ecf010d83775335665472ca1a3d03020db81d631283e19ad684937efd.png" src="_images/96eece6ecf010d83775335665472ca1a3d03020db81d631283e19ad684937efd.png" />
+</div>
+</div>
+<p>V modelu se postupně zvyšuje nosná kapacita prostředí (roste les) a malinko zvedneme i rychlost rozmnožování (například jsou roky příznivé pro vývoj hmyzu). Z obrázku je patrné, že zásadnější vliv na polohu a počet průsečíků má parametr $K$, nosná kapacita prostředí. To odpovídá místu, kde modrá přímka protíná vodorovnou osu na obrázku nalevo, resp. svislou na obrázku uprostřed.</p>
+<p>Pro malé hodnoty (malý les) vidíme jeden průsečík pro malé $x$. Populace obaleče je přítomna, ale v malé míře.
+S rostoucí hodnotou $K$ se objeví další dva průsečíky, které odpovídají po řadě nestabilnímu a stabilnímu stacionárnímu bodu. Populace obaleče má možnost dalšího stacionárního stavu, ale pro dosažení vyššího stavu by musel překonat bariéru mezi stabilním stavem o malé velikosti populace a nestabilním stavem. I když k různým zakolísáním ve velikosti populace dochází, tak výrazné zakolísání směrem nahoru není pravděpodobné. Jak se však hodnota $K$ dále zvyšuje, je bariéra stále menší. Od určité hodnoty parametru $K$ dokonce nestabilní stav a stabilní stav s nízkou velikostí populace zaniknou a ze třech průsečíků křivek zůstane jenom ten napravo, který odpovídá stabilnímu stavu s vysokou velikostí populace obaleče.</p>
+<p>Popsaným mechanismem Brauer a Kirbs vysvětlují situaci s periodickým přemnožováním. S růstem lesa se mění
+parametry modelu, stacionární body se posunují a populace obaleče se tomu přizpůsobuje. Více stromů znamená vyšší nosnou kapacitu prostředí pro obaleče a predátoři svou činností populaci obaleče udržují na rozumné míře. Pokud však nosná kapacita prostředí dosáhne takové hodnoty, že predátoři jsou nasycení a nestačí populaci redukovat,
+odpovídá to posunu nestabilního stacionárního bodu pod hodnotu velikosti populace a dojde k přemnožení. Toto přemnožení má devastující účinky pro les.</p>
+</section>
+<section id="matematicky-model-premnozeni-kurovce">
+<h2>Matematický model přemnožení kůrovce<a class="headerlink" href="#matematicky-model-premnozeni-kurovce" title="Link to this heading">#</a></h2>
+<p>Dynamika kůrovce je jiná než u obaleče. U obaleče hraje roli rostoucí nosná kapacita prostředí a predace ptáky. Kůrovec nemá významné predátory a jeho přemnožení s nosnou kapacitou tolik nesouvisí. Matematický model jeho dynamiky byl také navržen, viz Křivan. Nahlédnutím do modelu zjistíte, že populace, které jsou ve středu našeho zájmu, jsou rozděleny do několika skupin. Pro každou z těchto skupin jsou definovány procesy, které tuto skupinu obohacují a procesy, které tuto skupinu ochuzují. Výsledkem je soustava rovnic, kterou je možno studovat po matematické stránce tak, jak je uvedeno v článku, nebo je možno ji prozkoumávat numericky. Modely založené na myšlence rozdělení populace na skupiny a sledování rychlosti změn těchto skupin se nazývají kompartmentové modely a jsou velice silným nástrojem pro simulace. Bohužel rostoucí počet skupin dramaticky zvětšuje složitost a odkazuje nás v podstatě pouze právě na numerické simulace. Proto jsou v modelu kůrovce použity triky, které umožní soustavu čtyř rovnic (1) zredukovat na soustavu dvou rovnic (10), kterou je již možné prozkoumat metodami založenými na vlastnostech rovinných křivek (v publikaci o kůrovcovi celostránkový obrázek na straně 30).</p>
+</section>
+<section id="literatura">
+<h2>Literatura<a class="headerlink" href="#literatura" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>D. Ludwig, D.D. Jones, C.S. Holling: Qualitative analysis of insect outbreak systems: the spruce budworm and forest, Journal of Animal Ecology 47(1): 315–332, February 1978.</p></li>
+<li><p>Křivan, V., Lewis, M., Bentz, B., Bewick, S., Lenhart, S., Liebhold, A. 2016. A dynamical model for bark beetle outbreaks. Journal of Theoretical Biology 407:25-37. DOI <a class="reference external" href="http://dx.doi.org/10.1016/j.jtbi.2016.07.009">10.1016/j.jtbi.2016.07.009</a>. <a class="reference external" href="http://www.entu.cas.cz/krivan/papers/KrivanLewisBentzBewickLenhartLiebhold-JTB-2016.pdf">Online verze</a> (27.3.2021)</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lov_populace.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Populace vystavená lovu</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Teplotni_bilance_Zeme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Energetická bilance Země a skleníkový efekt</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicky-model">Matematický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nondimenzionalizace">Nondimenzionalizace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericky-model">Numerický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicky-model-premnozeni-kurovce">Matematický model přemnožení kůrovce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literatura">Literatura</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

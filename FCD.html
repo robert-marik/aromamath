@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jak organismy detekují změny &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FCD';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Žebro chladiče, vývoj embrya i radon" href="DR_druheho_radu.html" />
+    <link rel="prev" title="Vysokorychlostní syntéza proteinů" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Krivkovy_integral.html">Křivkový integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dvojny_integral.html">Dvojný integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nezavislost_na_integracni_ceste.html">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Populace_pod_tlakem_predatoru.html">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/robert-marik/aromamath/main?urlpath=tree/FCD.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/robert-marik/aromamath/blob/main/FCD.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/FCD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jak organismy detekují změny</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i1-ffl-a-schopnost-detekce-zmen">I1 FFL a schopnost detekce změn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nondimenzionalizace-a-numericky-model">Nondimenzionalizace a numerický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navrh-na-dalsi-aktivitu">Návrh na další aktivitu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literatura">Literatura</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="jak-organismy-detekuji-zmeny">
+<h1>Jak organismy detekují změny<a class="headerlink" href="#jak-organismy-detekuji-zmeny" title="Link to this heading">#</a></h1>
+<p>Živé organismy musí reagovat na změny v prostředí, ve kterém žijí. V naprosté většině případů je pro ně přirozené reagovat na absolutní změny, než na změny relativní. Například při reakci na světlo je poměrně velký rozdíl, pokud do místnosti osvětlené svíčkami přidáme svíčku další. Pokud původně místnost osvětlovala svíčka jediná a přidali jsme druhou, je to významná změna. Pokud svíček však bylo padesát a přidáme padesátou první, není to pouhým okem nijak patrné. A pokud svíčku rozsvítíme za jasného dne (například kalíšek na hřbitově), není často plamen ani vidět.</p>
+<p>Popsaný fenomén je možno pozorovat u různých živých organismů a v různých měřítcích. Psychologové takové vnímání smysly znají a označují ho pojmem <a class="reference external" href="https://cs.wikipedia.org/wiki/Weber%C5%AFv%E2%80%93Fechner%C5%AFv_z%C3%A1kon">Weberův-Fechnerův zákon</a>. Někdy se tento zákon vyjadřuje vyjadřuje tak, že změna pozorovatelná smysly je úměrná intezitě podnětu. Například u padesátigramového závaží je možné rozlišit potěžkáním v ruce, jestli není o pět gramů těžší, u kilogramového závaží to již možné není. Abychom vnímali stejně intenzivně změnu hmotnosti, musela by se hmotnost kilogramového závaží změnit o sto gramů. Poté bude vždy změna hmotnosti deset procent aktuální hmotnosti a to je vnímatelné lidskými smysly. Matematickým důsledkem výše popsaného zákona je, že pokud podněty rostou geometrickou řadou, je každá taková změna vnímána stejně intenzivně.</p>
+<p>Schopnost detekovat  změny vstupního signálu ne podle absolutní velikosti podnětu, ale podle velikosti relativní, se nazývá <em>fold change detection</em>, <em>FCD</em>.
+V publikaci Adler (2018) je několik principů, jak je možné vlastnosti FCD dosáhnout, včetně detailnějšího popisu vybraných konkrétních příkladů a popisu uskutečněných pozorování. My se zde zaměříme na jednu z cest k FCD, na I1 FFl motiv.</p>
+<section id="i1-ffl-a-schopnost-detekce-zmen">
+<h2>I1 FFL a schopnost detekce změn<a class="headerlink" href="#i1-ffl-a-schopnost-detekce-zmen" title="Link to this heading">#</a></h2>
+<p><img src="//be150.caltech.edu/2020/content/_images/i1-ffl.png" alt="drawing" width="200"/> (Obrázek z <a class="reference external" href="http://be150.caltech.edu/2020/content/lessons/05_ffls.html">http://be150.caltech.edu/2020/content/lessons/05_ffls.html</a>)</p>
+<p>S I1 FFL obvodem (motivem) jsme se setkali při studiu <a class="reference external" href="http://user.mendelu.cz/marik/aromamath/Zaporna_zpetna_vazba_v_rustovych_modelech.html">záporné zpětné vazby v růstových modelech</a>. V těchto modelech I1 FFL motiv sloužil k urychlení syntézy potřebného proteinu tím, že současně s cílovým proteinem byl syntetizován i inhibitor, který rychlou produkci při dosažení určité koncentrace inhibitoru zastavil. Předpokláddali jsme jednoduchý scénář, kdy přítomnost inhibitoru sníží produkci. Použijeme zde podobný model, ale matematicky složitější. Nebudeme předpokládat skokovou změnu, ale spojitou. Přesněji, budeme používat následující předpoklady.</p>
+<ul class="simple">
+<li><p>Látka $X$ je podnět, který spustí produkci látek $Y$ a $Z$.</p></li>
+<li><p>Látka $Y$ je inhibitorem pro $Z$ a zpomaluje jeho produkci.</p></li>
+<li><p>Obě látky $Y$ a $Z$ se rozkládají rychlostí úměrnou jejich koncentraci.</p></li>
+</ul>
+<p>Matematickým modelem je následující soustava rovnic, viz Adler (2018).
+$$\begin{aligned}
+\frac{\mathrm dy}{\mathrm dt}&amp;=ax-by\cr
+\frac{\mathrm dz}{\mathrm dt}&amp;=\alpha \frac {x}{y}-\beta z
+\end{aligned} \tag{1}$$
+V této soustavě proměnné $y$ a $z$ vyjadřují koncentrace odpovídajících látek a podpora či utlumení reakce je vyjádřena přímou nebo nepřímou úměrností. Tuto soustavu není těžké vyřešit analyticky, protože pro známý časový průběh vstupního signálu $x(t)$ je první rovnice lineární rovnicí pro neznámou funkci $y(t)$ a poté je poslední rovnice opět lineární rovnicí pro neznámou $z(t)$. Nám však bude stačit numerická simulace ukazující, že popsaný systém chemických reakcí má takové vlastnosti, že organismus jakým může být i jednoduchá buňka bakterie <em>E. coli</em> dokáže reagovat na podněty podle jejich relativní velikosti.</p>
+</section>
+<section id="nondimenzionalizace-a-numericky-model">
+<h2>Nondimenzionalizace a numerický model<a class="headerlink" href="#nondimenzionalizace-a-numericky-model" title="Link to this heading">#</a></h2>
+<p>V systému (1) figuruje vstupní signál $x$, čtyři parametry ($a$, $b$, $\alpha$ a $\beta$) a tři proměnné ($y$, $z$, $t$). Vhodnou změnou jednotek (podrobně je rozepsáno například v Goentoro (2009)) je možné dosáhnout toho, že systém obsahuje jenom jeden bezrozměrný parametr a soustava má tvar
+$$\begin{aligned}
+\frac{\mathrm dy}{\mathrm dt}&amp;=x-y\cr
+\frac 1\rho \frac{\mathrm dz}{\mathrm dt}&amp;=\frac {x}{y}-z.
+\end{aligned}\tag{2} $$
+Bez komplikovaného matematického rozboru je možné stejného zjednodušení z (1) na (2) dosáhnout i následující úvahou.</p>
+<ul class="simple">
+<li><p>Budeme volit jednotku veličiny $x$ tak, aby na začátku byla hodnota podnětu rovna jedné. Tedy velikost $x$ budeme měřit v násobcích počátečního stavu. Dále budeme předpokládat, že systém měl dostatek času k tomu, aby dospěl do rovnonvážného stavu a nachází se na počátku ve stacionárním  bodě, který odpovídá hodnotě $x=1$.</p></li>
+<li><p>Budeme volit jednotku veličiny $y$ tak, aby na začátku pro $x=1$ byla hodnota veličin $y$ ve stacionárním stavu rovna jedné. Tedy velikost $y$ budeme měřit v násobcích stacionární hodnoty při počátečním stavu podnětu $x$. To znamená, že numericky budou hodnoty konstant $a$ a $b$ v soustavě (1) stejné. Pravá strana první rovnice tedy bude násobkem rozdílu $x-y$ a ve stacionárním stavu vždy platí $x=y$.</p></li>
+<li><p>Budeme volit jednotku času tak, aby numericky při počátečním podnětu byla rychlost produkce rovna jedné. To znamená, že čas budeme měřit tak, aby rychlost vycházela v násobcích počáteční rychlosti produkce. Tím dosáhneme toho, že společná hodnota konstant $a$ a $b$ v soustavě (1) je rovna jedné.</p></li>
+<li><p>Budeme volit jednotku veličiny $z$ tak, aby ve stacionárním stavu kdy platí $x=y$ byla hodnota $z$ rovna jedné. V každém okamžiku, nezávisle na hodnotě $x$, tedy bude systém konvergovat ke stacionárnímu stavu $z=1$. Matematicky to znamená, že konstanty $\alpha$ a $\beta$ budou stejné. Jejich společnou hodnotu označíme $\rho$.</p></li>
+</ul>
+<p>Takto zjednodušený systém si namodelujeme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>   <span class="c1"># Knihovna pro statické grafy. Grafy budeme kreslit sem do zápisníku.</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline               
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>                      <span class="c1"># Knihovna pro numerické výpočty.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>  <span class="c1"># Knihovna pro řešení diferenciálních rovnic.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nadefinujeme funkci modelující změny podnětu geometrickou řadou, tedy vždy například na dvojnásobek předchozí úrovně. Poté naformulujeme model a vyřešíme pomocí funkce pro řešení diferenciálních rovnic. Protože data budou nespojitá (vstupní signál se mění skokem), natavíme maximální hondnotu časového kroku na malou velikost. Bez toho by se totiž mohlo stát, že algoritmus se “ukolébá” v pasážích, kde se nic neděje a poté nestihe zareagovat na prudkou změnu. Přesněji, v případě použití metody s proměnnou délkou kroku dojde k prodloužení tohoto kroku a toto prodloužení by mohlo být nežádoucí pro modelování dynamiky v okamžiku změny v $x$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">podnet</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">2</span>                        <span class="c1"># Násobek s jakým roste podnět x. Při hodnotě menší než jedna podnět klesá.</span>
+    <span class="n">t0</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">t3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span>    <span class="c1"># Časy ve kterých dojde ke změně intenzity podnětu.</span>
+    <span class="n">skoky</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">&lt;</span><span class="n">t0</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">&gt;=</span><span class="n">t0</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="n">t</span><span class="o">&gt;=</span><span class="n">t1</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">t2</span><span class="p">),</span> <span class="p">(</span><span class="n">t</span><span class="o">&gt;=</span><span class="n">t2</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">t3</span><span class="p">)]</span>   <span class="c1"># Intervaly, na kterých je podnět konstantní. Intervaly mezi skoky.</span>
+    <span class="n">hodnoty</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Hodnota podnětu po každém skoku. Volíme geometrickou řadu.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">skoky</span><span class="p">,</span><span class="n">hodnoty</span><span class="p">))</span>   <span class="c1"># Výsledkem je po částech konstantní funkce s definovanými skoky a funkčními hodnotami.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">model</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">promenne</span><span class="p">):</span>   <span class="c1"># Definice interakce mezi proteiny</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">podnet</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>         <span class="c1"># Intenzita podnetu v daném čase</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">promenne</span>       <span class="c1"># Pro pohodlí rozbalíme pole vstupních dat na proměnné pojmenované stejně jako v textu.</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="mf">0.05</span>            <span class="c1"># Jediný bezrozměrný parametr https://doi.org/10.1016/j.coisb.2017.12.005</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">rho</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span> <span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)]</span>  <span class="c1"># Výstupem jsou pravé strany systému</span>
+
+<span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span>                   <span class="c1"># Meze pro časový interval</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Časový interval</span>
+<span class="n">pocatek</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># Počáteční podmínka, pro jednoduchost ve stacionárním bodě odpovídajícím počáteční hodnotě podnětu</span>
+<span class="n">reseni</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="n">pocatek</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_step</span><span class="o">=</span><span class="mf">0.01</span> <span class="p">)</span>   <span class="c1"># Řešení počáteční úlohy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro prezentaci dat si průběh vstupního signálu a průběh řešení uložíme do proměnných a vykreslíme graficky. Grafy mají stejnou časovou osu a jsou pod sebou. Díky tomu vidíme pěkně, že v místech kde intenzita podnětu roste na svůj násobek je vždy peak veličiny $z$. Tyto peaky jsou všechny stejné přesto, že schodky v proměnné $x$ stejné nejsou. Přesněji, není stejná velikost schodku. Co však je stejné je nárůst schodku na dvojnásobek. Je tedy stejná relativní změna $x$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">reseni</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>              <span class="c1"># Řešení soustavy rovnic.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">podnet</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>                     <span class="c1"># Časový průběh intenzity podnětu</span>
+
+    <span class="c1"># Budme kreslit tři obrázky. Jejich tvorbu uděláme v cyklu, ve kterém jenom předáme data, barvu a text do nadpisu</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">jmeno</span><span class="p">,</span> <span class="n">barva</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot;x. Podnět.&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;y. Množství inhibitoru.&quot;</span><span class="p">,</span><span class="s2">&quot;gray&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="s2">&quot;z. Reakce na podnět.&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>             <span class="c1"># Inicializace obrázku. Samostatný obrázek pro každý graf</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">barva</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>   <span class="c1"># Vykreslení grafu zvolenou barvou a tlustou čarou (linewdith 6)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Časový vývoj </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">jmeno</span>)     # Nadpis
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/76df73c142ac688f3e81cbeaaa0f729f3ac766521872cb46072ebd458abc6ee0.png" src="_images/76df73c142ac688f3e81cbeaaa0f729f3ac766521872cb46072ebd458abc6ee0.png" />
+<img alt="_images/a79e3a42589dc5a34ac9d06aecc06aeb02ac5097f7d9ae8d3a24797a3b84d1a5.png" src="_images/a79e3a42589dc5a34ac9d06aecc06aeb02ac5097f7d9ae8d3a24797a3b84d1a5.png" />
+<img alt="_images/2320f65ba1ae6992aeb1e642280a77944c06f348aae2f684c0dec8ea361e1806.png" src="_images/2320f65ba1ae6992aeb1e642280a77944c06f348aae2f684c0dec8ea361e1806.png" />
+</div>
+</div>
+</section>
+<section id="navrh-na-dalsi-aktivitu">
+<h2>Návrh na další aktivitu<a class="headerlink" href="#navrh-na-dalsi-aktivitu" title="Link to this heading">#</a></h2>
+<p>V publikaci Adler(2018) jsou i další návrhy, jak zrealizovat FCD chování. Najděte je a vyzkoušejte si zde uvedený skript předělat na tyto modely.</p>
+</section>
+<section id="literatura">
+<h2>Literatura<a class="headerlink" href="#literatura" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Miri Adler, Uri Alon: Fold-change detection in biological systems, Current Opinion in Systems Biology
+Volume 8, April 2018, Pages 81-89. Online <a class="reference external" href="https://doi.org/10.1016/j.coisb.2017.12.005">https://doi.org/10.1016/j.coisb.2017.12.005</a>  (7.4.2021)</p></li>
+<li><p>Lea Goentoro, Oren Shova, Marc W. Kirschner, Uri Alon: The Incoherent Feedforward Loop Can Provide Fold-Change Detection in Gene Regulation, Molecular Cell
+Volume 36, Issue 5, 11 December 2009, Pages 894-899. Online <a class="reference external" href="https://doi.org/10.1016/j.molcel.2009.11.018">https://doi.org/10.1016/j.molcel.2009.11.018</a> (8.4.2021)</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Zaporna_zpetna_vazba_v_rustovych_modelech.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vysokorychlostní syntéza proteinů</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DR_druheho_radu.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Žebro chladiče, vývoj embrya i radon</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i1-ffl-a-schopnost-detekce-zmen">I1 FFL a schopnost detekce změn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nondimenzionalizace-a-numericky-model">Nondimenzionalizace a numerický model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navrh-na-dalsi-aktivitu">Návrh na další aktivitu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literatura">Literatura</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

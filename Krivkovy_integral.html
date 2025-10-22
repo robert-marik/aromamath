@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Křivkový integrál &#8212; A-Ro-Ma-Math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/nadpisy.css?v=7ee365f9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Krivkovy_integral';</script>
+    <script src="_static/sloupce.js?v=c24d1897"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dvojný integrál" href="Dvojny_integral.html" />
+    <link rel="prev" title="Konstitutivní zákony" href="Konstitutivni_zakony.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+<!-- Timto textem je potreba nahradit </head> ve vygenerovanych html souborech -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+</head>  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A-Ro-Ma-Math - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A-Ro-Ma-Math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Úvod do A-Ro-Ma-Math
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivace</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konstitutivni_zakony.html">Konstitutivní zákony</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrál</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Křivkový integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dvojny_integral.html">Dvojný integrál</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nezavislost_na_integracni_ceste.html">Nezávislost na integrační cestě</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diferenciální rovnice</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lov_populace.html">Populace vystavená lovu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Populace_pod_tlakem_predatoru.html">Periodické přemnožování obaleče</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Teplotni_bilance_Zeme.html">Energetická bilance Země a skleníkový efekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Autonomni_rovnice_a_systemy.html">Autonomní rovnice a systémy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zaporna_zpetna_vazba_v_rustovych_modelech.html">Vysokorychlostní syntéza proteinů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FCD.html">Jak organismy detekují změny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DR_druheho_radu.html">Žebro chladiče, vývoj embrya i radon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/robert-marik/aromamath/main?urlpath=tree/Krivkovy_integral.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/robert-marik/aromamath/blob/main/Krivkovy_integral.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Krivkovy_integral.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Křivkový integrál</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krivkovy-integral-a-obsah-mnoziny">Křivkový integrál a obsah množiny</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krivkovy-integral-a-tok-vektoroveho-pole">Křivkový integrál a tok vektorového pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tok-vektoroveho-pole-s-konstantni-divergenci">Tok vektorového pole s konstantní divergencí</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shrnuti">Shrnutí</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vypoctem-se-potvrdil-hruby-odhad-situace">Výpočtem se potvrdil hrubý odhad situace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#budujeme-cestu-mezi-tim-jak-funguje-material-a-tim-co-se-da-namerit">Budujeme cestu mezi tím, jak funguje materiál, a tím, co se dá naměřit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chystame-si-motivaci-k-rozsireni-intergalu-na-funkce-definovane-na-dvourozmernych-mnozinach">Chystáme si motivaci k rozšíření intergálu na funkce definované na dvourozměrných množinách</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="krivkovy-integral">
+<h1>Křivkový integrál<a class="headerlink" href="#krivkovy-integral" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Klasickou aplikací křivkového integrálu je práce a potenciál. Nás bude zajímat spíše tok, proto se zde zaměříme na tok vektorového pole uzavřenou křivkou. Můžeme si vektorové pole představit jako rychlostní pole udávající, jak ve kterém místě fouká vítr a snažíme se vypočítat, jestli v množině ohraničené křivkou vzduchu ubývá, či přibývá.</p>
+</div></blockquote>
+<p>Budeme se zajímat o tok vektorového pole křivkou. Může jít například o tok tepla. Pokud je křivka uzavřená, vypočteme celkové teplo, které proteče do oblasti obepnuté touto křivkou. Podobně je možné modelovat difuzní tok a zjišťovat, jaké množství difundující látky se dostane do oblasti. Znaménková konvence pro kladně orientované křivky (při obíhání ve směru rostoucího parametru je oblast obepnutá křivkou po levé ruce) je taková, že tok ven je kladný a tok dovnitř záporný.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>                     <span class="c1"># knihovna na numerické výpočty (goniomerické funkce, gradient, 2D mřížka a dělení intervalu, ...)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span>           <span class="c1"># knihovna na technické výpočty (integrál)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># knihovna na kreslení</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="krivkovy-integral-a-obsah-mnoziny">
+<h2>Křivkový integrál a obsah množiny<a class="headerlink" href="#krivkovy-integral-a-obsah-mnoziny" title="Link to this heading">#</a></h2>
+<p>Budme uvažovat uzavřenou křivku ve tvaru srdce s parametrickými rovnicemi
+$$ \vec r(t) = \begin{pmatrix} -16 \sin^3(t) \cr 13\cos(t)-5\cos(2t)-2\cos(3t)-\cos(4t)\end{pmatrix},\quad t\in[0,2\pi].$$
+Jako výsledný tok touto křivkou dostaneme bilanci mezi přírůstkem a úbytkem tepla (nebo obecně stavové veličiny) uvnitř. Křivka je orientována proti směru hodinových ručiček a kladný tok je tok ven ze srdce.</p>
+<p>Pro ujasnění si souvilosti s divergencí se nám bude hodit i obsah. Ten vypočteme jako křivkový integrál $$\oint_C x\mathrm dy.$$ Výpočet můžeme zrealizovat přepisem na Riemannův integrál tak, že ručně zadáme derivaci křivky. Díky tomu nebudeme muset používat aproximaci pomocí centrálních diverencí. Je ale možné počítat i numericky. Pro srovnání použijeme obě metody.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>                                    <span class="c1"># parametrické rovnice křivky ve tvaru srdce</span>
+   <span class="k">return</span> <span class="p">[</span> <span class="o">-</span><span class="mi">16</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="p">,</span> <span class="mi">13</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)]</span> 
+
+<span class="k">def</span><span class="w"> </span><span class="nf">krivka_derivace</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>                           <span class="c1"># derivace rovnice křivky ve tvaru srdce</span>
+   <span class="k">return</span> <span class="p">[</span> <span class="o">-</span><span class="mi">16</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>           <span class="c1"># interval mezi 0 a 2*pi rozdělený na 1000 dílků</span>
+ 
+<span class="c1"># Výpočet pomocí ručně zadané derivace křivky</span>
+<span class="n">Obsah</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span> <span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">krivka_derivace</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="c1"># výpočet integrálu x*dy přepisem na Riemannův integral a integrací Simpsonovým pravidlem</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obsah pomocí analyticky definovaných derivací je </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">str</span>(Obsah))
+
+<span class="c1"># Výpočet numerickou derivací křivky</span>
+<span class="n">Obsah_num</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span> <span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obsah numerickým výpočtem derivací je </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">str</span>(Obsah_num))
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>           <span class="c1"># interval mezi 0 a 2*pi rozdělený na 1000 dílků</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Výpočet pomocí ručně zadané derivace křivky</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">Obsah</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span> <span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">krivka_derivace</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="c1"># výpočet integrálu x*dy přepisem na Riemannův integral a integrací Simpsonovým pravidlem</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obsah pomocí analyticky definovaných derivací je </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">str</span>(Obsah))
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Výpočet numerickou derivací křivky</span>
+
+<span class="ne">AttributeError</span>: module &#39;scipy.integrate&#39; has no attribute &#39;simps&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krivkovy-integral-a-tok-vektoroveho-pole">
+<h2>Křivkový integrál a tok vektorového pole<a class="headerlink" href="#krivkovy-integral-a-tok-vektoroveho-pole" title="Link to this heading">#</a></h2>
+<p>Definujme nástroje pro výpočet toku. Pro lepší představu budeme uvažovat teplotní tok, který je záporně vzatým gradientem teploty. Komponenty vektorového pole $$ \vec q = -\nabla T$$ jsou $$q_x=-\frac{\partial T}{\partial x}$$ a $$q_y=-\frac{\partial T}{\partial y}.$$
+Tok křivkou $C$ vypočteme jako křivkový integrál
+$$\int_C -q_y\mathrm dx + q_x \mathrm dy.$$</p>
+<p>Pro jednoduchost použijeme poměrně jednoduchou metodu výpočtu celkového toku křivkou.</p>
+<ul class="simple">
+<li><p>Hranici si rozdělíme na $N$ dílků podle hodnoty parametru parametrizujícího křivku. Vypočteme tok na každém dílku a sečteme je integrálem za použití Simpsonovy metody. Pro lepší ilustraci si graf takto integrované funkce kreslíme do pravého obrázku. Začátek i konec odpovídá hornímu bodu uprostřed srdce, tj. bodu o souřadnicích $(0,5)$.</p></li>
+<li><p>Tok pole $(q_x,q_y)$ na každém dílku vypočteme skalárním součinem tečného vektoru ke křivce s polem $(-q_y,q_x)$.</p></li>
+<li><p>Tečný vektor určíme pomocí centrální diference. Poslouží k tomu vestavěná funkce <code class="docutils literal notranslate"><span class="pre">gradient</span></code> z knihovny <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
+<li><p>Vektorové pole v daném místě křivky vypočteme ručně pomocí centrální diference.</p></li>
+</ul>
+<p>Celkový tok vydělíme obsahem srdce. Tím budeme mít změnu na jednotku obsahu, což odpovídá divergenci. Zejména v případech, kdy je divergence konstantní (teplota dána lineární nebo kvadratickou funkcí), očekáváme shodu tohoto podílu s divergencí.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">MultipleLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+  <span class="k">return</span> <span class="mi">20</span><span class="o">-</span><span class="n">x</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">KRESLI</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">teplota</span>                                <span class="c1"># pouzijeme globalne definovane funkce</span>
+    <span class="k">global</span> <span class="n">krivka</span>
+    <span class="k">global</span> <span class="n">Obsah</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">20</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">20</span><span class="n">j</span><span class="p">]</span>    <span class="c1"># mrizka pro kresleni gradientu a barevne mapy funkce dvou promennych</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                             <span class="c1"># výpočet teploty na mřížce</span>
+    <span class="n">grady</span><span class="p">,</span> <span class="n">gradx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>              <span class="c1"># gradient teploty</span>
+    <span class="n">qx</span><span class="p">,</span> <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="n">gradx</span><span class="p">,</span> <span class="o">-</span><span class="n">grady</span>                       <span class="c1"># tok, pole opačné ke gradientu</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>  <span class="c1"># inicializace grafiky, dva grafy vedle sebe</span>
+    
+    <span class="c1">## Vykreslení teploty a toku tepla</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                    <span class="c1"># začneme kreslit do prvního grafu</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>                    <span class="c1"># nastaveni schema pro barevnou mapu</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span> <span class="c1"># vykresleni barevne mapy pomocí zvolené barevné mapy a vyhlazování přechodů</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>                   <span class="c1"># barevný sloupec s hodnotami vedle grafu</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">qx</span><span class="p">,</span> <span class="n">qy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>         <span class="c1"># vykreslení toku</span>
+    
+    <span class="c1">## Vykreslení křivky</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>                                      <span class="c1"># počet dělení intervalu pro parametr t</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>          <span class="c1"># interval mezi 0 a 2*pi rozdělený na N dílků, uzlové body křivky</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">krivka</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>                              <span class="c1"># kartézské souřadnice bodů na křivce</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>             <span class="c1"># vykreslení křivky</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                              <span class="c1"># budeme používat stejné měřítko na obou osách</span>
+
+    <span class="c1">## Výpočet integrálu</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>                      <span class="c1"># derivace první komponenty krivky pomocí centralni diference (viz napoveda k funkci gradient)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>                      <span class="c1"># derivace druhé komponenty křivky</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                              <span class="c1"># vzdálenost mezi uzlovými body</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">dt</span>                                        <span class="c1"># krok pro výpočet derivace, je také možné derivace počítat analyticky, což by pravděpodobně navýšilo přesnost</span>
+    <span class="n">qx</span><span class="p">,</span> <span class="n">qy</span> <span class="o">=</span> <span class="p">[</span> <span class="o">-</span><span class="p">(</span> <span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span><span class="p">(</span> <span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">teplota</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="p">]</span> 
+                                                  <span class="c1"># (qx,qy) je vektorové pole opačné ke gradientu vypočtené pomocí centrální diference v bodech křivky</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="o">-</span> <span class="n">qy</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">qx</span> <span class="o">*</span> <span class="n">dy</span>                       <span class="c1"># integrand po přepisu křivkového integrálu na Riemannův, </span>
+                                                  <span class="c1"># skalární součin tečného vektoru (dx,dy) ke křivce s vektorem kolmým (-qy,qx) k toku (qx,qy)</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>         <span class="c1"># celkový tok přes hranici srdce, tok orientovanou křivkou</span>
+
+    <span class="n">podil</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">/</span> <span class="n">Obsah</span>                      <span class="c1"># Podíl toku a obsahu množiny. Střední hodnota divergence.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Výsledný tok je </span><span class="si">%s</span><span class="s2">.</span><span class="se">\n</span><span class="s2">Podíl toku a obsahu množiny je </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">integral</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">podil</span><span class="p">)))</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                  <span class="c1"># začneme kreslit do druhého grafu</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>                                 <span class="c1"># vykreslení součinu tečného vektoru ke křivce s kolmým polem na tok, příspěvek k celkovému toku</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Průběh příspěvků k celkovému toku&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Hodnota parametru&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Součin tečného vektoru a normálové komponenty toku&quot;</span><span class="p">)</span>
+                    <span class="c1"># následující tři řádky zařídí osu v násobcích pi</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="p">,</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{1}{2}</span><span class="s1">\pi$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\pi$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{3}{2}</span><span class="s1">\pi$&#39;</span><span class="p">,</span> <span class="s1">&#39;$2\pi$&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tok-vektoroveho-pole-s-konstantni-divergenci">
+<h2>Tok vektorového pole s konstantní divergencí<a class="headerlink" href="#tok-vektoroveho-pole-s-konstantni-divergenci" title="Link to this heading">#</a></h2>
+<p>Využijeme předpřipravené funkce vždy na vektorové pole mající konstantní divergenci. To znamená, že tok zesiluje ve všech místech stejnou intenzitou. Pokud by byla úloha stacionární, podle difuzní rovnice by případné zesilování toku šlo na vrub zdrojům či spotřebičům. Konstantnost divergence poté znamená, že tyto zdroje či spotřebiče jsou rozloženy rovnoměrně v rovině.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+   <span class="k">return</span> <span class="mi">20</span><span class="o">-</span><span class="n">x</span>
+<span class="n">KRESLI</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je 3.2118275053449885e-13.
+Podíl toku a obsahu množiny je 5.679758042612651e-16.
+</pre></div>
+</div>
+<img alt="_images/1654dd1e7c0482a16c62a8990cdf4dbabb03ef548b3ab607e3d7197b003c065a.png" src="_images/1654dd1e7c0482a16c62a8990cdf4dbabb03ef548b3ab607e3d7197b003c065a.png" />
+</div>
+</div>
+<p>Teplota na obrázku výše je dána vztahem $$T(x,y)=20-x.$$ Roste tedy konstantní rychlostí směrem doleva. Teplo teče doprava. Situace je krásně symetrická. Teplo, které na levé straně do srdce vteče, na pravé straně vyteče. Tuto symetrii je možno odhadnout z obrázku toku. Středově symetrická je i křivka vpravo.</p>
+<p><strong>Pozorování.</strong> Nulovost toku srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je nulová, $$\nabla \cdot (-\nabla T)=0.$$</p>
+<p><strong>Poznámka.</strong>
+Výpočet z definice programem Sage je <a class="reference external" href="https://sagecell.sagemath.org/?z=eJxtj89qhDAQxu-C7xDwsDHo4rptDwWvvkQpMk2yJWj-EKNEn75JxD0snVx-k5lv5psVLL64S5lnRVGgHRgogR6LGimvkNFUOEAzR06PaLRiHfWSZ73HvtrKrm6JD9n2zLY8O16cZfWqBOXIWH1IQ9VjFxpvH2QWKiAh9zzb4t_tTqieA9XvCVoSsE14jxjhLUCe7bG9OZdIvh8bDFiQ3Nk8c1KoyknwXVO1xIino38iVY4GpmfYuRLD4bWTYDCaQP4wQObTYN9F8xXaumg4AK77rep9GTz9WmCCK_cqujLxeCQVTuKkRGVcpxbJraAwDUI5HgZMeOXUaYtfjJRXpt0QTmQLdWfPuTD6CJFORvHm8qv5_gMoX4cO&amp;amp;lang=sage&amp;amp;interacts=eJyLjgUAARUAuQ==">zde</a>, křivka je předepsána, nastavte si požadovanou funkci.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+  <span class="k">return</span> <span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> 
+<span class="n">KRESLI</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je -2261.9159109974307.
+Podíl toku a obsahu množiny je -3.9999455343792634.
+</pre></div>
+</div>
+<img alt="_images/d97c3495ed73f24f4694a256647895cd4e7cf453eb3a8d7c5f1d5e21c301a0a7.png" src="_images/d97c3495ed73f24f4694a256647895cd4e7cf453eb3a8d7c5f1d5e21c301a0a7.png" />
+</div>
+</div>
+<p>Teplota na obrázku výše je dána vztahem $$T(x,y)=50+x^2+y^2.$$ Roste tedy směrem od středu. Uprostřed je nejnižší teplota (nejtmavší barva) a teplo teče do srdce. Tok je záporný.  Podíl toku a obsahu množiny je vypočten před obrázkem.</p>
+<p><strong>Pozorování.</strong> Podíl toku a obsahu srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je konstantní záporná, $$\nabla \cdot (-\nabla T)=-4.$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+  <span class="k">return</span> <span class="mi">50</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span>
+<span class="n">KRESLI</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je 226.19159109974353.
+Podíl toku a obsahu množiny je 0.39999455343792717.
+</pre></div>
+</div>
+<img alt="_images/d45bc03cf5f92aa4051df3843b38c0516cc0f4e2bb4726cbfc23d700353e9275.png" src="_images/d45bc03cf5f92aa4051df3843b38c0516cc0f4e2bb4726cbfc23d700353e9275.png" />
+</div>
+</div>
+<p>Teplota na obrázku výše je dána vztahem $$T(x,y)=50-\frac {x^2+y^2}{10}.$$ Klesá tedy směrem od středu. Uprostřed je nejvyšší teplota (žlutá barva) a teplo teče ze srdce. Tok je kladný.  Podíl toku a obsahu množiny je vypočten před obrázkem.</p>
+<p><strong>Pozorování.</strong> Podíl toku a obsahu srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je konstantní kladná, $$\nabla \cdot (-\nabla T)=\frac 4{10}.$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+  <span class="k">return</span> <span class="mi">20</span><span class="o">+</span><span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">KRESLI</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je -11.309579455446585.
+Podíl toku a obsahu množiny je -0.019999727495869944.
+</pre></div>
+</div>
+<img alt="_images/ecd1af6c49e950889b4c0c834db7857962e9d36c1d10bcd647e0cc90f65863ea.png" src="_images/ecd1af6c49e950889b4c0c834db7857962e9d36c1d10bcd647e0cc90f65863ea.png" />
+</div>
+</div>
+<p>Teplota na obrázku je dána vztahem $$T=20+0.01(x+20)^2.$$ Roste tedy nelineárně směrem doprava (stále vyšší rychlostí). Tok v pravé části srdce je intenzivnější než tok v levé. Tok v pravé části je dovnitř a tedy záporný. Tok v levé části je kladný a malý. Celkový tok je tedy záporný. Podíl toku a obsahu množiny je vypočten před obrázkem.</p>
+<p><strong>Pozorování.</strong> Podíl toku a obsahu srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je konstantní a záporná, $$\nabla \cdot (-\nabla T)=-0.02.$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="mi">20</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">x</span>
+<span class="n">KRESLI</span><span class="p">()</span>    
+  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je 3.98034105099517e-06.
+Podíl toku a obsahu množiny je 7.038788371763074e-09.
+</pre></div>
+</div>
+<img alt="_images/626941d7cc3de30328abb8509d3dc52537630f6f6c602323f0bf543a1f0804f1.png" src="_images/626941d7cc3de30328abb8509d3dc52537630f6f6c602323f0bf543a1f0804f1.png" />
+</div>
+</div>
+<p>Teplota je dána vztahem $$T(x,y)=20+x-2y.$$ Roste tedy směrem dolů. Proto teplo teče z pravého dolního rohu do levého horního. Narozdíl od konstantního toku přecházejícího přes srdce zleva doprava již situace není symetrická. Protože však tok nikde nezesiluje ani nezeslabuje, je přirozené, že teplo které na jednom konci do srdce vteče na druhém vyteče. Celkový tok je tedy nulový.</p>
+<p><strong>Pozorování.</strong> Nulovost toku srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je nulová, $$\nabla \cdot (-\nabla T)=0.$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">teplota</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> 
+   <span class="k">return</span> <span class="mi">100</span><span class="o">-</span><span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="mi">40</span><span class="o">+</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+<span class="n">KRESLI</span><span class="p">()</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledný tok je 56.547894889285985.
+Podíl toku a obsahu množiny je 0.0999986332565324.
+</pre></div>
+</div>
+<img alt="_images/d42280c711d59d84ccab9108fa43fde011938601443c189ca6c4d1f193bcfa5e.png" src="_images/d42280c711d59d84ccab9108fa43fde011938601443c189ca6c4d1f193bcfa5e.png" />
+</div>
+</div>
+<p>Teplota je dána vztahem  $$T(x,y)=100-0.01(40+x-2y)^2 $$
+Teplo teče směrem doprava dolů. Vektory se postupně prodlužují a tok tedy nabývá na intenzitě. Tato intenzivnější část je v místě, kde teplo teče ven, tj. v místě, kde je tok kladný. Záporné příspěvky v levém horním rohu jsou zanedbatelné a celkový tok je kladný. Podíl toku a obsahu množiny je vypočten před obrázkem.</p>
+<p><strong>Pozorování.</strong> Podíl toku a obsahu srovnejme s informací, že přímý výpočet ukazuje skutečnost, že divergence vektorového pole popisujícího tok tepla je konstantní a kladná, platí $$\nabla \cdot (-\nabla T)=0.1.$$</p>
+</section>
+<section id="shrnuti">
+<h2>Shrnutí<a class="headerlink" href="#shrnuti" title="Link to this heading">#</a></h2>
+<section id="vypoctem-se-potvrdil-hruby-odhad-situace">
+<h3>Výpočtem se potvrdil hrubý odhad situace<a class="headerlink" href="#vypoctem-se-potvrdil-hruby-odhad-situace" title="Link to this heading">#</a></h3>
+<p>Ve všech výše uvedených příkladech se potvrdilo to, co bylo možno odhadnout z obrázku: zda do ohraničeného objemu více přitéká než odtéká, či naopak, či zda jsou příspěvky vyrovnány. Důležité je, že jsme dokázali veličinu udávající celkový tok křivkou dokázali vypočítat, aniž bychom využívali speciálních vlastností toku či křivky. Proto je reálné předpokládat, že to bude fungovat i ve zcela obecných případech.</p>
+</section>
+<section id="budujeme-cestu-mezi-tim-jak-funguje-material-a-tim-co-se-da-namerit">
+<h3>Budujeme cestu mezi tím, jak funguje materiál, a tím, co se dá naměřit<a class="headerlink" href="#budujeme-cestu-mezi-tim-jak-funguje-material-a-tim-co-se-da-namerit" title="Link to this heading">#</a></h3>
+<p>Vedlejším produktem analýzy bylo to, že nyní tušíme vazbu mezi křivkovým interálem a divergencí. Tato vazba existuje, nazývá se <em>Greenova věta</em> a je to základní nástroj pro přechod mezi lokálními a globálními tvary fyzikálních zákonů. Tímto dokážeme přecházet od vysvětlení, co se děje v daném místě (tj. jak funguje daný materiál) k  vysvětlení, co se děje v konečně velkém kusu materiálu (tj. co se dá reálně pozorovat a naměřit) a nazpátky.</p>
+</section>
+<section id="chystame-si-motivaci-k-rozsireni-intergalu-na-funkce-definovane-na-dvourozmernych-mnozinach">
+<h3>Chystáme si motivaci k rozšíření intergálu na funkce definované na dvourozměrných množinách<a class="headerlink" href="#chystame-si-motivaci-k-rozsireni-intergalu-na-funkce-definovane-na-dvourozmernych-mnozinach" title="Link to this heading">#</a></h3>
+<p>Všechny výše uvedené příklady měly tu vlastnosti, že analyticky vypočtená divergence byla konstantní. Proto i podíl toku přes hranici a obsahu množiny byl numericky roven této divergenci. Toto je pochopitelné a plyne to z fyzikální interpretace pojmu divergence. V případě toku s nekonstantní divergencí máme v tomto podíle jakousi zprůměrovanou hodnotu. V jakém smyslu je zprůměrována, tedy jak se počítá průměrná hodnota veličiny rozložené spojitě v části roviny, si ukážeme v pasáži věnované <em>dvojnému integrálu</em>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Konstitutivni_zakony.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Konstitutivní zákony</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Dvojny_integral.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dvojný integrál</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krivkovy-integral-a-obsah-mnoziny">Křivkový integrál a obsah množiny</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krivkovy-integral-a-tok-vektoroveho-pole">Křivkový integrál a tok vektorového pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tok-vektoroveho-pole-s-konstantni-divergenci">Tok vektorového pole s konstantní divergencí</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shrnuti">Shrnutí</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vypoctem-se-potvrdil-hruby-odhad-situace">Výpočtem se potvrdil hrubý odhad situace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#budujeme-cestu-mezi-tim-jak-funguje-material-a-tim-co-se-da-namerit">Budujeme cestu mezi tím, jak funguje materiál, a tím, co se dá naměřit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chystame-si-motivaci-k-rozsireni-intergalu-na-funkce-definovane-na-dvourozmernych-mnozinach">Chystáme si motivaci k rozšíření intergálu na funkce definované na dvourozměrných množinách</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Mařík
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
