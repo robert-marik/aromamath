@@ -1,16 +1,15 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-- file: intro
-- part: Derivace
+format: jb-book
+root: intro
+parts:
+- caption: Derivace
   chapters:
   - file: Konstitutivni_zakony.ipynb
-- part: Integrál
+- caption: "Integr\xE1l"
   chapters:
   - file: Krivkovy_integral.ipynb
   - file: Dvojny_integral.ipynb
   - file: Nezavislost_na_integracni_ceste.ipynb
-- part: Diferenciální rovnice
+- caption: "Diferenci\xE1ln\xED rovnice"
   chapters:
   - file: Lov_populace.ipynb
   - file: Populace_pod_tlakem_predatoru.ipynb
