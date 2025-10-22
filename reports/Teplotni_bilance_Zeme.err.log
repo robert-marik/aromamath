@@ -1,0 +1,107 @@
+Traceback (most recent call last):
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy                      # knihovna pro numerické výpočty
+from scipy.integrate import solve_ivp  # řešení diferenciálních rovnic
+
+import bokeh.io                   # knihovna pro kreslení interaktivních grafů
+import bokeh.plotting             # knihovna pro kreslení interaktivních grafů
+bokeh.io.output_notebook()        # grafy kreslit sem do zápisníku
+
+colors = ['lightblue','blue','navy']  # paleta barev, odstíny modré
+
+epsilon = [0.75, 0.6, 0.45]               # definice parametrů pro skleníkový efekt
+
+def ohrivani(T):
+  Q=342
+  alpha = 0.5+0.2*numpy.tanh(0.1*(265-T))   # odrazivost, souvisi s podilem ledu na Zemi a se stavem atmosfery
+  return Q*(1-alpha)         # Absorbovany vykon Q ze Slunce, snizeny o odrazenou cast, alpha je odrazivost pri teplote T
+
+def ochlazovani(T, epsilon):
+  sigma=5.67*10**(-8)        # Fyzikalni konstana, Stefan-Boltzmann constant
+  return T**4*sigma*epsilon  # Vyzarovani do kosmu, snizene koeficientem epsilon pro modelovani sklenikoveho efektu
+
+T = numpy.linspace(150, 400, 100)    # definice intervalu pro kreslení růstových křivek
+p = bokeh.plotting.figure(title="Efekt ohřevu a ochlazování Země, tři scénáře dle intenzity skleníkového efektu", 
+                          x_axis_label='termodynamická teplota / Kelvin', 
+                          y_axis_label='výkon na metr čtvereční',
+                          y_range=(0, 300),
+                          plot_width=1000
+                          )
+for i in range(len(epsilon)):                          # Cyklus přes parametry
+    p.line(T,ochlazovani(T,epsilon[i]),                # Vykreslení křivky ochlazování pro různé hodnoty skleníkového efektu
+           color=colors[i], 
+           legend_label="ochlazování, epsilon=%s"%str(epsilon[i]), 
+           width=3
+           )
+
+p.line(T,ohrivani(T),                                  # Vykreslení křivky pro ohřev dopadajícím výkonem
+       color='red', 
+       legend_label="ohřev Země", 
+       width=3) 
+
+
+p.legend.click_policy="hide"                   # Skrývat křivky po kliknutí na legendu
+bokeh.plotting.show(p) 
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 22[39m
+[32m     19[39m   [38;5;28;01mreturn[39;00m T**[32m4[39m*sigma*epsilon  [38;5;66;03m# Vyzarovani do kosmu, snizene koeficientem epsilon pro modelovani sklenikoveho efektu[39;00m
+[32m     21[39m T = numpy.linspace([32m150[39m, [32m400[39m, [32m100[39m)    [38;5;66;03m# definice intervalu pro kreslení růstových křivek[39;00m
+[32m---> [39m[32m22[39m p = [43mbokeh[49m[43m.[49m[43mplotting[49m[43m.[49m[43mfigure[49m[43m([49m[43mtitle[49m[43m=[49m[33;43m"[39;49m[33;43mEfekt ohřevu a ochlazování Země, tři scénáře dle intenzity skleníkového efektu[39;49m[33;43m"[39;49m[43m,[49m[43m [49m
+[32m     23[39m [43m                          [49m[43mx_axis_label[49m[43m=[49m[33;43m'[39;49m[33;43mtermodynamická teplota / Kelvin[39;49m[33;43m'[39;49m[43m,[49m[43m [49m
+[32m     24[39m [43m                          [49m[43my_axis_label[49m[43m=[49m[33;43m'[39;49m[33;43mvýkon na metr čtvereční[39;49m[33;43m'[39;49m[43m,[49m
+[32m     25[39m [43m                          [49m[43my_range[49m[43m=[49m[43m([49m[32;43m0[39;49m[43m,[49m[43m [49m[32;43m300[39;49m[43m)[49m[43m,[49m
+[32m     26[39m [43m                          [49m[43mplot_width[49m[43m=[49m[32;43m1000[39;49m
+[32m     27[39m [43m                          [49m[43m)[49m
+[32m     28[39m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(epsilon)):                          [38;5;66;03m# Cyklus přes parametry[39;00m
+[32m     29[39m     p.line(T,ochlazovani(T,epsilon[i]),                [38;5;66;03m# Vykreslení křivky ochlazování pro různé hodnoty skleníkového efektu[39;00m
+[32m     30[39m            color=colors[i], 
+[32m     31[39m            legend_label=[33m"[39m[33mochlazování, epsilon=[39m[38;5;132;01m%s[39;00m[33m"[39m%[38;5;28mstr[39m(epsilon[i]), 
+[32m     32[39m            width=[32m3[39m
+[32m     33[39m            )
+
+[36mFile [39m[32m/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/bokeh/plotting/_figure.py:197[39m, in [36mfigure.__init__[39m[34m(self, *arg, **kw)[39m
+[32m    195[39m [38;5;28;01mfor[39;00m name [38;5;129;01min[39;00m kw.keys():
+[32m    196[39m     [38;5;28;01mif[39;00m name [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m names:
+[32m--> [39m[32m197[39m         [38;5;28;43mself[39;49m[43m.[49m[43m_raise_attribute_error_with_matches[49m[43m([49m[43mname[49m[43m,[49m[43m [49m[43mnames[49m[43m [49m[43m|[49m[43m [49m[43mopts[49m[43m.[49m[43mproperties[49m[43m([49m[43m)[49m[43m)[49m
+[32m    199[39m [38;5;28msuper[39m().[34m__init__[39m(*arg, **kw)
+[32m    201[39m [38;5;28mself[39m.x_range = get_range(opts.x_range)
+
+[36mFile [39m[32m/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/bokeh/core/has_props.py:378[39m, in [36mHasProps._raise_attribute_error_with_matches[39m[34m(self, name, properties)[39m
+[32m    375[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m matches:
+[32m    376[39m     matches, text = [38;5;28msorted[39m(properties), [33m"[39m[33mpossible[39m[33m"[39m
+[32m--> [39m[32m378[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33mf[39m[33m"[39m[33munexpected attribute [39m[38;5;132;01m{[39;00mname[38;5;132;01m!r}[39;00m[33m to [39m[38;5;132;01m{[39;00m[38;5;28mself[39m.[34m__class__[39m.[34m__name__[39m[38;5;132;01m}[39;00m[33m, [39m[38;5;132;01m{[39;00mtext[38;5;132;01m}[39;00m[33m attributes are [39m[38;5;132;01m{[39;00mnice_join(matches)[38;5;132;01m}[39;00m[33m"[39m)
+
+[31mAttributeError[39m: unexpected attribute 'plot_width' to figure, similar attributes are outer_width, width or min_width
+

@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/mnt/python/miniforge3/envs/jupyter-book/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def krivka(t):                                    # parametrické rovnice křivky ve tvaru srdce
+   return [ -16*numpy.sin(t)**3 , 13*numpy.cos(t)-5*numpy.cos(2*t)-2*numpy.cos(3*t)-numpy.cos(4*t)] 
+
+def krivka_derivace(t):                           # derivace rovnice křivky ve tvaru srdce
+   return [ -16*3*numpy.sin(t)**2*numpy.cos(t) , -13*numpy.sin(t)+5*numpy.sin(2*t)*2+2*numpy.sin(3*t)*3+numpy.sin(4*t)*4]
+
+t = numpy.linspace(0, 2*numpy.pi, 1000)           # interval mezi 0 a 2*pi rozdělený na 1000 dílků
+ 
+# Výpočet pomocí ručně zadané derivace křivky
+Obsah = scipy.integrate.simps( krivka(t)[0]*krivka_derivace(t)[1] , t) # výpočet integrálu x*dy přepisem na Riemannův integral a integrací Simpsonovým pravidlem
+print("Obsah pomocí analyticky definovaných derivací je %s"%str(Obsah))
+
+# Výpočet numerickou derivací křivky
+Obsah_num = scipy.integrate.simps( krivka(t)[0] * numpy.gradient(krivka(t)[1],t) , t)
+print("Obsah numerickým výpočtem derivací je %s"%str(Obsah_num))
+
+x,y = krivka(t)
+plt.plot(x,y, color='red');
+
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 10[39m
+[32m      7[39m t = numpy.linspace([32m0[39m, [32m2[39m*numpy.pi, [32m1000[39m)           [38;5;66;03m# interval mezi 0 a 2*pi rozdělený na 1000 dílků[39;00m
+[32m      9[39m [38;5;66;03m# Výpočet pomocí ručně zadané derivace křivky[39;00m
+[32m---> [39m[32m10[39m Obsah = [43mscipy[49m[43m.[49m[43mintegrate[49m[43m.[49m[43msimps[49m( krivka(t)[[32m0[39m]*krivka_derivace(t)[[32m1[39m] , t) [38;5;66;03m# výpočet integrálu x*dy přepisem na Riemannův integral a integrací Simpsonovým pravidlem[39;00m
+[32m     11[39m [38;5;28mprint[39m([33m"[39m[33mObsah pomocí analyticky definovaných derivací je [39m[38;5;132;01m%s[39;00m[33m"[39m%[38;5;28mstr[39m(Obsah))
+[32m     13[39m [38;5;66;03m# Výpočet numerickou derivací křivky[39;00m
+
+[31mAttributeError[39m: module 'scipy.integrate' has no attribute 'simps'
+
